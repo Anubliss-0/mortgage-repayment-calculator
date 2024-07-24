@@ -1,2 +1,7 @@
 // Consider using utility classes in here!
 // Mixins will allows for classes that can be passed arguments. That would be very cool!
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
