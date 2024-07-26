@@ -11,8 +11,18 @@
     border-style: solid;
     @include flex-row;
     @include text-preset-3;
+    // TODO: This can applied to whole app higher up.
     box-sizing: border-box;
     overflow: hidden;
+    transition-duration: 400ms;
+
+    &.active {
+        border-color: $lime;
+    }
+
+    &.hover {
+        border-color: $slate-900;
+    }
 }
 
 .prefix {
@@ -22,6 +32,12 @@
         color: $slate-700;
         padding: $spacing-150;
         background-color: $slate-100;
+        transition-duration: 400ms;
+
+        &.active {
+            background-color: $lime;
+            color: $slate-900;
+        }
     }
 }
 
