@@ -2,7 +2,7 @@
 @import '../../styles/typography.scss';
 @import '../../styles/utilities.scss';
 
-div {
+.form {
     @include flex-column;
     max-width: 500px;
 }
