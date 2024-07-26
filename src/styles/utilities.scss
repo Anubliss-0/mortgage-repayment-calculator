@@ -6,6 +6,12 @@
     flex-direction: column;
 }
 
+@mixin flex-column-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
 @mixin flex-row {
     display: flex;
     flex-direction: row;

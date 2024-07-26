@@ -6,7 +6,10 @@ function Form({ value, onSquareClick }) {
     return (
         <>
             <div>
-                <NumberFieldPrefix />
+                <NumberFieldPrefix 
+                    prefixText={"Prefix"} 
+                    label={'Title'}
+                />
             </div>
         </>
     );
