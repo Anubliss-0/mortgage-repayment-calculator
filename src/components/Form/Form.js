@@ -1,12 +1,11 @@
 // import React from 'react';
-import NumberFieldPrefix from './NumberFieldPrefix';
-import '../styles/utilities.scss';
+import NumberFieldPrefix from '../NumberFieldPrefix/NumberFieldPrefix';
+import './Form.module.scss'
 
 function Form({ value, onSquareClick }) {
     return (
         <>
-            <div className='flex-column'>
-                <NumberFieldPrefix />
+            <div>
                 <NumberFieldPrefix />
             </div>
         </>

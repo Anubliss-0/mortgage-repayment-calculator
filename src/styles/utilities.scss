@@ -1,7 +1,19 @@
 // Consider using utility classes in here!
 // Mixins will allows for classes that can be passed arguments. That would be very cool!
 
-.flex-column {
+@mixin flex-column {
     display: flex;
     flex-direction: column;
+}
+
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flex-row-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

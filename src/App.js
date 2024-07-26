@@ -1,6 +1,5 @@
 import './App.css';
-import './styles/typography.scss';
-import Form from './components/Form';
+import Form from './components/Form/Form.js';
 
 function App() {
   return (

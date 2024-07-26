@@ -1,7 +1,7 @@
 @import './variables';
 
 /* Typography Presets */
-.text-preset-1 {
+@mixin text-preset-1 {
   font-family: $font-primary;
   font-size: 56px;
   line-height: $line-height-125;
@@ -9,7 +9,7 @@
   font-weight: $font-weight-bold;
 }
 
-.text-preset-2 {
+@mixin text-preset-2 {
   font-family: $font-primary;
   font-size: 24px;
   line-height: $line-height-125;
@@ -17,15 +17,14 @@
   font-weight: $font-weight-bold;
 }
 
-.text-preset-3 {
+@mixin text-preset-3 {
   font-family: $font-primary;
   font-size: 18px;
   line-height: $line-height-125;
-  letter-spacing: -1px;
   font-weight: $font-weight-bold;
 }
 
-.text-preset-4 {
+@mixin text-preset-4 {
   font-family: $font-primary;
   font-size: 16px;
   line-height: $line-height-150;
@@ -33,7 +32,7 @@
   font-weight: $font-weight-medium;
 }
 
-.text-preset-5 {
+@mixin text-preset-5 {
   font-family: $font-primary;
   font-size: 14px;
   line-height: $line-height-150;
