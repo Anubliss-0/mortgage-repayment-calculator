@@ -1,16 +1,19 @@
 // import React from 'react';
 import NumberFieldPrefix from '../NumberFieldPrefix/NumberFieldPrefix';
+import NumberFieldSuffix from '../NumberFieldSuffix/NumberFieldSuffix';
 import './Form.module.scss'
 
 function Form({ value, onSquareClick }) {
     return (
         <>
-            <div>
-                <NumberFieldPrefix 
-                    prefixText={"Prefix"} 
-                    label={'Title'}
-                />
-            </div>
+            <NumberFieldPrefix
+                prefixText={"Prefix"}
+                label={'Amount'}
+            />
+            <NumberFieldSuffix
+                suffixText={"Suffix"}
+                label={'Amount'}
+            />
         </>
     );
 }
