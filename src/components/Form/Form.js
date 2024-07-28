@@ -8,17 +8,32 @@ import { useState } from 'react';
 function Form({ value, onSquareClick }) {
     const [selectedRadio, setSelectedRadio] = useState()
 
+    const [formData, setFormData] = useState({
+        mortgageAmount: '',
+        amountSuffix: '',
+        mortgageType: ''
+    });
+
+    const handleInputChange = (key, value) => {
+        setFormData(prevState => ({
+          ...prevState,
+          [key]: value
+        }));
+    };
+
     return (
         <>
             <form className={styles.form}>
                 <NumberFieldPrefix
-                    prefixText={"RENEE!"}
+                    prefixText={"Amount"}
                     label={'Amount'}
+                    value={formData.mortgageAmount}
+                    onChange={(value) => handleInputChange('mortgageAmount', value)}
                 />
-                <NumberFieldSuffix
+                {/* <NumberFieldSuffix
                     suffixText={"BUTT!!"}
                     label={'Amount'}
-                />
+                /> */}
                 <fieldset>
                     <legend>Mortage Type</legend>
                     <RadioButton 

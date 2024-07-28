@@ -3,10 +3,9 @@ import styles from './NumberFieldPrefix.module.scss'
 import { useState } from 'react';
 import { useId } from 'react';
 
-function NumberFieldPrefix({ prefixText, label }) {
+function NumberFieldPrefix({ prefixText, label, value, onChange }) {
     const [isActive, setIsActive] = useState(false);
     const [mouseHover, setMouseHover] = useState(false);
-    const [value, setValue] = useState('');
     const inputId = useId();
 
     const handleFocus = () => {
@@ -23,7 +22,7 @@ function NumberFieldPrefix({ prefixText, label }) {
         const regex = /^-?\d*\.?\d*$/;
 
         if (regex.test(newValue)) {
-            setValue(newValue)
+            onChange(newValue)
         }
     }
 
