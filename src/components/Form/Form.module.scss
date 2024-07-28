@@ -5,4 +5,15 @@
 .form {
     @include flex-column;
     max-width: 500px;
+
+    fieldset {
+        @include flex-column-start;
+        border-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    legend {
+        @include text-preset-4;
+    }
 }

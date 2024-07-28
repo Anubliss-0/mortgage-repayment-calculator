@@ -1,0 +1,33 @@
+@import '../../styles/variables.scss';
+@import '../../styles/typography.scss';
+@import '../../styles/utilities.scss';
+
+.radioButton {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    align-items: center;
+    border: 1px solid $slate-700;
+    border-radius: 4px;
+    @include text-preset-3;
+    height: 3rem;
+
+    input {
+        display: none;
+    }
+
+    &.hover {
+        border-color: $lime;
+    }
+
+    &.selected {
+        background-color: $lime
+    }
+}
+
+.checkbox {
+    @include flex-row-center;
+    width: 19.5px;
+    color: $slate-700;
+}
+
