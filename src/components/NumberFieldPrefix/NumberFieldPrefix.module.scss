@@ -33,6 +33,10 @@
     &.hover {
         border-color: $slate-900;
     }
+
+    &.empty {
+        border-color: red;
+    }
 }
 
 .prefix {

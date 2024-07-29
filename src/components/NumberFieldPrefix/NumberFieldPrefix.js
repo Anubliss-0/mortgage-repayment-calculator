@@ -3,7 +3,7 @@ import styles from './NumberFieldPrefix.module.scss'
 import { useState } from 'react';
 import { useId } from 'react';
 
-function NumberFieldPrefix({ prefixText, label, value, onChange }) {
+function NumberFieldPrefix({ prefixText, label, value, onChange, showError }) {
     const [isActive, setIsActive] = useState(false);
     const [mouseHover, setMouseHover] = useState(false);
     const inputId = useId();
@@ -39,7 +39,7 @@ function NumberFieldPrefix({ prefixText, label, value, onChange }) {
     return (
         <div className={styles.container}>
             <label htmlFor={inputId}>{label}</label>
-            <div className={`${styles.fieldOuter} ${isActive ? styles.active : ''} ${mouseHover ? styles.hover : ''}`}>
+            <div className={`${styles.fieldOuter} ${isActive ? styles.active : ''} ${mouseHover ? styles.hover : ''} ${showError ? styles.empty : ''}`}>
                 <div className={styles.prefix}>
                     <span className={isActive ? styles.active : ''}>{prefixText}</span>
                 </div>

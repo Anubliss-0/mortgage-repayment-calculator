@@ -3,10 +3,9 @@ import styles from './NumberFieldSuffix.module.scss'
 import { useState } from 'react';
 import { useId } from 'react';
 
-function NumberFieldSuffix({ suffixText, label }) {
+function NumberFieldSuffix({ suffixText, label, value, onChange }) {
     const [isActive, setIsActive] = useState(false);
     const [mouseHover, setMouseHover] = useState(false);
-    const [value, setValue] = useState('');
     const inputId = useId();
 
     const handleFocus = () => {
@@ -23,7 +22,7 @@ function NumberFieldSuffix({ suffixText, label }) {
         const regex = /^-?\d*\.?\d*$/;
 
         if (regex.test(newValue)) {
-            setValue(newValue)
+            onChange(newValue)
         }
     }
 
