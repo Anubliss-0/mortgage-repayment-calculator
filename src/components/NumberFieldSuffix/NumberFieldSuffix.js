@@ -3,7 +3,7 @@ import styles from './NumberFieldSuffix.module.scss'
 import { useState } from 'react';
 import { useId } from 'react';
 
-function NumberFieldSuffix({ suffixText, label, value, onChange }) {
+function NumberFieldSuffix({ suffixText, label, value, onChange, showError }) {
     const [isActive, setIsActive] = useState(false);
     const [mouseHover, setMouseHover] = useState(false);
     const inputId = useId();
@@ -36,10 +36,12 @@ function NumberFieldSuffix({ suffixText, label, value, onChange }) {
         setMouseHover(false)
     }
 
+    const fieldRequired = () => showError ? <span>This field is required</span> : ''
+
     return (
         <div className={styles.container}>
             <label htmlFor={inputId}>{label}</label>
-            <div className={`${styles.fieldOuter} ${isActive ? styles.active : ''} ${mouseHover ? styles.hover : ''}`}>
+            <div className={`${styles.fieldOuter} ${isActive ? styles.active : ''} ${mouseHover ? styles.hover : ''} ${showError ? styles.error : ''}`}>
                 <input
                     id={inputId}
                     className={styles.input}
@@ -53,9 +55,10 @@ function NumberFieldSuffix({ suffixText, label, value, onChange }) {
                     onChange={handleChange}
                 ></input>
                 <div className={styles.suffix}>
-                    <span className={isActive ? styles.active : ''}>{suffixText}</span>
+                <span className={`${isActive ? styles.active : ''} ${showError ? styles.error : ''}`}>{suffixText}</span>
                 </div>
             </div>
+            {fieldRequired()}
         </div>
     );
 }

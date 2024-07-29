@@ -36,12 +36,14 @@ function NumberFieldPrefix({ prefixText, label, value, onChange, showError }) {
         setMouseHover(false)
     }
 
+    const fieldRequired = () => showError ? <span>This field is required</span> : ''
+    
     return (
         <div className={styles.container}>
             <label htmlFor={inputId}>{label}</label>
-            <div className={`${styles.fieldOuter} ${isActive ? styles.active : ''} ${mouseHover ? styles.hover : ''} ${showError ? styles.empty : ''}`}>
+            <div className={`${styles.fieldOuter} ${isActive ? styles.active : ''} ${mouseHover ? styles.hover : ''} ${showError ? styles.error : ''}`}>
                 <div className={styles.prefix}>
-                    <span className={isActive ? styles.active : ''}>{prefixText}</span>
+                    <span className={`${isActive ? styles.active : ''} ${showError ? styles.error : ''}`}>{prefixText}</span>
                 </div>
                 <input
                     id={inputId}
@@ -56,6 +58,7 @@ function NumberFieldPrefix({ prefixText, label, value, onChange, showError }) {
                     onChange={handleChange}
                 ></input>
             </div>
+            {fieldRequired()}
         </div>
     );
 }

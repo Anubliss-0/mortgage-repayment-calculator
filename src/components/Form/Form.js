@@ -38,7 +38,7 @@ function Form() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if(emptyElements.length === 0) {
+        if (emptyElements.length === 0) {
             setIsSubmitted(true);
             setShowErrors(false);
             console.log("submitted!")
@@ -50,7 +50,7 @@ function Form() {
 
     return (
         <>
-            <form 
+            <form
                 className={styles.form}
                 onSubmit={handleSubmit}
             >
@@ -66,21 +66,22 @@ function Form() {
                     label={'Mortgage Term'}
                     value={formData.mortgageTerm}
                     onChange={(value) => handleInputChange('mortgageTerm', value)}
+                    showError={emptyElements.includes('mortgageTerm') && showErrors}
                 />
                 <fieldset>
                     <legend>Mortage Type</legend>
-                    <RadioButton 
+                    <RadioButton
                         label={'Repayment'}
                         collectionName={"mortgageType"}
                         value='repayment'
-                        onChange={(event) => {handleInputChange('mortgageType', event.target.value)}}
+                        onChange={(event) => { handleInputChange('mortgageType', event.target.value) }}
                         selected={formData.mortgageType === 'repayment'}
                     />
-                    <RadioButton 
+                    <RadioButton
                         label={'Interest only'}
                         collectionName={"mortgageType"}
                         value='interest only'
-                        onChange={(event) => {handleInputChange('mortgageType', event.target.value)}}
+                        onChange={(event) => { handleInputChange('mortgageType', event.target.value) }}
                         selected={formData.mortgageType === 'interest only'}
                     />
                 </fieldset>

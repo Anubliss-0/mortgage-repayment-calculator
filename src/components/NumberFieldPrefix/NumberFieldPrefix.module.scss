@@ -34,8 +34,8 @@
         border-color: $slate-900;
     }
 
-    &.empty {
-        border-color: red;
+    &.error {
+        border-color: $red;
     }
 }
 
@@ -52,6 +52,11 @@
         &.active {
             background-color: $lime;
             color: $slate-900;
+        }
+
+        &.error {
+            background-color: $red;
+            color: $white;
         }
     }
 }

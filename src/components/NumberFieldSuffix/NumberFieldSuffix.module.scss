@@ -33,6 +33,10 @@
     &.hover {
         border-color: $slate-900;
     }
+
+    &.error {
+        border-color: $red;
+    }
 }
 
 .suffix {
@@ -48,6 +52,11 @@
         &.active {
             background-color: $lime;
             color: $slate-900;
+        }
+
+        &.error {
+            background-color: $red;
+            color: $white;
         }
     }
 }
