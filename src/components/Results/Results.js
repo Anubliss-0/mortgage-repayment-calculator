@@ -1,22 +1,27 @@
+import i18n from 'i18next';
+import { useTranslation } from 'react-i18next';
+import '../../i18n'; // Import the i18n configuration
+
 function Results({ monthlyRepayments, total, showResults }) {
+    const { t } = useTranslation();
 
     return (
         <section>
             {showResults ? (
                 <div>
                     <header>
-                        <h2>Your Results</h2>
+                        <h2>{t("yourResults")}</h2>
                         <p>
-                            Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.
+                            {t("resultsInfo")}
                         </p>
                     </header>
                     <div>
                         <div>
-                            <span>Your monthly repayments</span>
+                            <span>{t("yourMonthlyRepayments")}</span>
                             <span>{monthlyRepayments}</span>
                         </div>
                         <div>
-                            <span>Total you'll repay over the term</span>
+                            <span>{t("totalRepayments")}</span>
                             <span>{total}</span>
                         </div>
                     </div>
@@ -24,9 +29,9 @@ function Results({ monthlyRepayments, total, showResults }) {
             ) : (
                 <div>
                     <header>
-                        <h2>Results shown here</h2>
+                        <h2>{t("resultsHere")}</h2>
                         <p>
-                            Complete the form and click “calculate repayments” to see what your monthly repayments would be.
+                            {t("resultsPlaceholder")}
                         </p>
                     </header>
                 </div>
