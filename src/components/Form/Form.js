@@ -6,19 +6,21 @@ import SubmitButton from '../SubmitButton/SubmitButton';
 import styles from './Form.module.scss'
 import { useState } from 'react';
 
-function Form() {
+function Form({ onSubmit }) {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [showErrors, setShowErrors] = useState(false);
     const [emptyElements, setEmptyElements] = useState([
         'mortgageAmount',
         'mortgageTerm',
+        'interestRate',
         'mortgageType'
     ]);
 
     const [formData, setFormData] = useState({
         mortgageAmount: '',
-        mortgageTerm: '',
-        mortgageType: ''
+        mortgageTerm:   '',
+        interestRate:   '',
+        mortgageType:   ''
     });
 
     const handleInputChange = (key, value) => {
@@ -41,10 +43,9 @@ function Form() {
         if (emptyElements.length === 0) {
             setIsSubmitted(true);
             setShowErrors(false);
-            console.log("submitted!")
+            onSubmit(formData);
         } else {
             setShowErrors(true);
-            console.log("Showing errors")
         }
     };
 
@@ -61,13 +62,22 @@ function Form() {
                     onChange={(value) => handleInputChange('mortgageAmount', value)}
                     showError={emptyElements.includes('mortgageAmount') && showErrors}
                 />
-                <NumberFieldSuffix
-                    suffixText={"years"}
-                    label={'Mortgage Term'}
-                    value={formData.mortgageTerm}
-                    onChange={(value) => handleInputChange('mortgageTerm', value)}
-                    showError={emptyElements.includes('mortgageTerm') && showErrors}
-                />
+                <div>
+                    <NumberFieldSuffix
+                        suffixText={"%"}
+                        label={'Interest Rate'}
+                        value={formData.interestRate}
+                        onChange={(value) => handleInputChange('interestRate', value)}
+                        showError={emptyElements.includes('interestRate') && showErrors}
+                    />
+                    <NumberFieldSuffix
+                        suffixText={"years"}
+                        label={'Mortgage Term'}
+                        value={formData.mortgageTerm}
+                        onChange={(value) => handleInputChange('mortgageTerm', value)}
+                        showError={emptyElements.includes('mortgageTerm') && showErrors}
+                    />
+                </div>
                 <fieldset>
                     <legend>Mortage Type</legend>
                     <RadioButton
