@@ -1,13 +1,12 @@
 // import React from 'react';
 import NumberFieldPrefix from '../NumberFieldPrefix/NumberFieldPrefix';
 import NumberFieldSuffix from '../NumberFieldSuffix/NumberFieldSuffix';
-import RadioButton from '../RadioButton/RadioButton';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import styles from './Form.module.scss'
 import { useState } from 'react';
-import i18n from 'i18next';
 import { useTranslation } from 'react-i18next';
 import '../../i18n'; // Import the i18n configuration
+import Fieldset from '../FieldSet/FieldSet';
 
 function Form({ onSubmit }) {
     const { t } = useTranslation();
@@ -82,23 +81,11 @@ function Form({ onSubmit }) {
                         showError={emptyElements.includes('mortgageTerm') && showErrors}
                     />
                 </div>
-                <fieldset>
-                    <legend>{t("mortgageType")}</legend>
-                    <RadioButton
-                        label={t('repayment')}
-                        collectionName={"mortgageType"}
-                        value='repayment'
-                        onChange={(event) => { handleInputChange('mortgageType', event.target.value) }}
-                        selected={formData.mortgageType === 'repayment'}
-                    />
-                    <RadioButton
-                        label={t('interestOnly')}
-                        collectionName={"mortgageType"}
-                        value='interest only'
-                        onChange={(event) => { handleInputChange('mortgageType', event.target.value) }}
-                        selected={formData.mortgageType === 'interest only'}
-                    />
-                </fieldset>
+                <Fieldset 
+                    onChange={handleInputChange}
+                    formData={formData}
+                    showError={emptyElements.includes('mortgageTerm') && showErrors}
+                />
                 <SubmitButton />
             </form>
         </>
