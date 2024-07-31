@@ -1,6 +1,6 @@
-import RadioButton from '../RadioButton/RadioButton';
+import RadioButton from './RadioButton/RadioButton';
 import { useTranslation } from 'react-i18next';
-import '../../i18n'; // Import the i18n configuration
+import '../../../../i18n'; // Import the i18n configuration
 
 function Fieldset({onChange, formData, showError}) {
     const { t } = useTranslation();

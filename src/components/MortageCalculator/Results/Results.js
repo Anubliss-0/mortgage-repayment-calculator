@@ -1,6 +1,5 @@
-import i18n from 'i18next';
 import { useTranslation } from 'react-i18next';
-import '../../i18n'; // Import the i18n configuration
+import '../../../i18n'; // Import the i18n configuration
 
 function Results({ monthlyRepayments, total, showResults }) {
     const { t } = useTranslation();

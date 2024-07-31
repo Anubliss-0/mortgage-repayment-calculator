@@ -1,15 +1,13 @@
-// import React from 'react';
-import NumberField from '../NumberField/NumberField';
-import SubmitButton from '../SubmitButton/SubmitButton';
+import NumberField from './NumberField/NumberField';
+import SubmitButton from './SubmitButton/SubmitButton';
 import styles from './Form.module.scss'
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import '../../i18n'; // Import the i18n configuration
-import Fieldset from '../FieldSet/FieldSet';
+import '../../../i18n'; // Import the i18n configuration
+import Fieldset from './FieldSet/FieldSet';
 
 function Form({ onSubmit }) {
     const { t } = useTranslation();
-    const [isSubmitted, setIsSubmitted] = useState(false);
     const [showErrors, setShowErrors] = useState(false);
     const [emptyElements, setEmptyElements] = useState([
         'mortgageAmount',
@@ -43,7 +41,6 @@ function Form({ onSubmit }) {
         event.preventDefault();
 
         if (emptyElements.length === 0) {
-            setIsSubmitted(true);
             setShowErrors(false);
             onSubmit(formData);
         } else {

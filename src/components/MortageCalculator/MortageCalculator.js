@@ -1,8 +1,8 @@
-import './App.css';
-import Form from './components/Form/Form.js';
-import Results from './components/Results/Results.js';
+import Form from './Form/Form.js';
+import Results from './Results/Results.js';
 import { useState } from 'react';
-import { i18n } from './i18n';
+import { i18n } from '../../i18n.js';
+import { calculateTotalRepayment } from './mortgageCalculatorUtils.js';
 
 function MortgageCalculator() {
   const [monthlyRepayments, setMonthlyRepayments] = useState();
@@ -20,23 +20,6 @@ function MortgageCalculator() {
     setMonthlyRepayments(newMonthlyRepayments);
     setShowResults(true);
   };
-
-  function calculateTotalRepayment(mortgageAmount, mortgageTerm, interestRate, mortgageType) {
-    const monthlyInterestRate = (interestRate / 100) / 12;
-    const numberOfPayments = mortgageTerm * 12;
-
-    if (mortgageType === "repayment") {
-      const monthlyPayment = mortgageAmount *
-        (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
-        (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
-
-      const totalRepayment = monthlyPayment * numberOfPayments;
-      return totalRepayment.toFixed(2);
-    } else if (mortgageType === "interest only") {
-      const totalInterest = mortgageAmount * monthlyInterestRate * numberOfPayments;
-      return parseFloat(totalInterest).toFixed(2);
-    }
-  }
 
   return (
     <div className="App">
