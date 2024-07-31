@@ -1,8 +1,10 @@
-import Form from './Form/Form.js';
-import Results from './Results/Results.js';
 import { useState } from 'react';
 import { i18n } from '../../i18n.js';
+
 import { calculateTotalRepayment } from './mortgageCalculatorUtils.js';
+
+import Form from './Form/Form.js';
+import Results from './Results/Results.js';
 
 function MortgageCalculator() {
   const [monthlyRepayments, setMonthlyRepayments] = useState();

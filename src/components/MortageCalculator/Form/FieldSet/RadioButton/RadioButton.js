@@ -1,31 +1,23 @@
-import styles from './RadioButton.module.scss'
+import { useState, useId } from 'react';
+
 import { Icon } from '@iconify/react';
-import { useState } from 'react';
-import { useId } from 'react'
+
+import styles from './RadioButton.module.scss'
 
 function RadioButton({ collectionName, label, value, selected, onChange }) {
     const [mouseHover, setMouseHover] = useState(false);
     const id = useId();
 
-    const handleMouseEnter = () => {
-        setMouseHover(true)
-    }
-
-    const handleMouseLeave = () => {
-        setMouseHover(false)
-    }
-
-    const toggleCheckbox = () =>
-         selected ? <Icon icon="ph:radio-button-fill" /> : <Icon icon="ph:circle" />
+    const renderCheckbox = () => selected ? <Icon icon="ph:radio-button-fill" /> : <Icon icon="ph:circle" />
 
     return (
         <label
             className={`${styles.radioButton} ${mouseHover ? styles.hover : ''} ${selected ? styles.selected : ''}`}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={() => setMouseHover(true)}
+            onMouseLeave={() => setMouseHover(false)}
         >{label}
             <div className={styles.checkbox}>
-                {toggleCheckbox()}
+                {renderCheckbox()}
             </div>
             <input
                 type='radio'

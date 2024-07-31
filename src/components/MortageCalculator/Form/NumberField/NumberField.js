@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from './NumberField.module.scss'
 import { useState } from 'react';
 import { useId } from 'react';
+
+import styles from './NumberField.module.scss'
 
 function NumberField({ unit, label, value, onChange, showError, unitPosition }) {
     const [isActive, setIsActive] = useState(false);
@@ -36,21 +37,22 @@ function NumberField({ unit, label, value, onChange, showError, unitPosition }) 
         setMouseHover(false)
     }
 
-    const renderUnit = () => {
-        return (
-            <div className={styles.unit}>
-                    <span className={`${isActive ? styles.active : ''} ${showError ? styles.error : ''}`}>{unit}</span>
-            </div>
-        );
-    }
+    const renderUnit = () => (
+        <div className={styles.unit}>
+            <span className={`${isActive ? styles.active : ''} ${showError ? styles.error : ''}`}>{unit}</span>
+        </div>
+    )
 
-    const fieldRequired = () => showError ? <span>This field is required</span> : ''
-    
+
+    const renderFieldRequired = () => (
+        <span>This field is required</span>
+    )
+
     return (
         <div className={styles.container}>
             <label htmlFor={inputId}>{label}</label>
             <div className={`${styles.fieldOuter} ${isActive ? styles.active : ''} ${mouseHover ? styles.hover : ''} ${showError ? styles.error : ''}`}>
-                {unitPosition === "start" ? renderUnit() : ''}
+                {unitPosition === "start" && renderUnit()}
                 <input
                     id={inputId}
                     className={styles.input}
@@ -63,9 +65,9 @@ function NumberField({ unit, label, value, onChange, showError, unitPosition }) 
                     onBlur={handleBlur}
                     onChange={handleChange}
                 ></input>
-                {unitPosition === 'end' ? renderUnit() : ''}
+                {unitPosition === 'end' && renderUnit()}
             </div>
-            {fieldRequired()}
+            {showError && renderFieldRequired()}
         </div>
     );
 }

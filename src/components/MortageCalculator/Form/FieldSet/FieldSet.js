@@ -1,11 +1,11 @@
+import { useTranslation } from'../../../../i18n';
+
 import RadioButton from './RadioButton/RadioButton';
-import { useTranslation } from 'react-i18next';
-import '../../../../i18n'; // Import the i18n configuration
 
 function Fieldset({onChange, formData, showError}) {
     const { t } = useTranslation();
 
-    const fieldRequired = () => showError ? <span>This field is required</span> : ''
+    const renderFieldRequired = () => <span>This field is required</span>
 
     return (
         <div>
@@ -26,7 +26,7 @@ function Fieldset({onChange, formData, showError}) {
                     selected={formData.mortgageType === 'interest only'}
                 />
             </fieldset>
-            {fieldRequired()}
+            {showError && renderFieldRequired()}
         </div>
     )
 }

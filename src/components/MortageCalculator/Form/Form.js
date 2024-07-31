@@ -1,14 +1,16 @@
+import { useState } from 'react';
+import { useTranslation } from '../../../i18n';
+
+import Fieldset from './FieldSet/FieldSet';
 import NumberField from './NumberField/NumberField';
 import SubmitButton from './SubmitButton/SubmitButton';
+
 import styles from './Form.module.scss'
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import '../../../i18n'; // Import the i18n configuration
-import Fieldset from './FieldSet/FieldSet';
 
 function Form({ onSubmit }) {
     const { t } = useTranslation();
     const [showErrors, setShowErrors] = useState(false);
+
     const [emptyElements, setEmptyElements] = useState([
         'mortgageAmount',
         'mortgageTerm',
@@ -18,9 +20,9 @@ function Form({ onSubmit }) {
 
     const [formData, setFormData] = useState({
         mortgageAmount: '',
-        mortgageTerm:   '',
-        interestRate:   '',
-        mortgageType:   ''
+        mortgageTerm: '',
+        interestRate: '',
+        mortgageType: ''
     });
 
     const handleInputChange = (key, value) => {
@@ -80,7 +82,7 @@ function Form({ onSubmit }) {
                         unitPosition={'end'}
                     />
                 </div>
-                <Fieldset 
+                <Fieldset
                     onChange={handleInputChange}
                     formData={formData}
                     showError={emptyElements.includes('mortgageTerm') && showErrors}
