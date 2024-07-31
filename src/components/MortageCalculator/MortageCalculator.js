@@ -4,7 +4,7 @@ import Results from './components/Results/Results.js';
 import { useState } from 'react';
 import { i18n } from './i18n';
 
-function App() {
+function MortgageCalculator() {
   const [monthlyRepayments, setMonthlyRepayments] = useState();
   const [total, setTotal] = useState();
   const [showResults, setShowResults] = useState(false);
@@ -55,4 +55,4 @@ function App() {
   );
 }
 
-export default App;
+export default MortgageCalculator;
