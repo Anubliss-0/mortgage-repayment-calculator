@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './NumberFieldPrefix.module.scss'
+import styles from './NumberField.module.scss'
 import { useState } from 'react';
 import { useId } from 'react';
 
-function NumberFieldPrefix({ prefixText, label, value, onChange, showError }) {
+function NumberField({ unit, label, value, onChange, showError, unitPosition }) {
     const [isActive, setIsActive] = useState(false);
     const [mouseHover, setMouseHover] = useState(false);
     const inputId = useId();
@@ -36,15 +36,21 @@ function NumberFieldPrefix({ prefixText, label, value, onChange, showError }) {
         setMouseHover(false)
     }
 
+    const renderUnit = () => {
+        return (
+            <div className={styles.unit}>
+                    <span className={`${isActive ? styles.active : ''} ${showError ? styles.error : ''}`}>{unit}</span>
+            </div>
+        );
+    }
+
     const fieldRequired = () => showError ? <span>This field is required</span> : ''
     
     return (
         <div className={styles.container}>
             <label htmlFor={inputId}>{label}</label>
             <div className={`${styles.fieldOuter} ${isActive ? styles.active : ''} ${mouseHover ? styles.hover : ''} ${showError ? styles.error : ''}`}>
-                <div className={styles.prefix}>
-                    <span className={`${isActive ? styles.active : ''} ${showError ? styles.error : ''}`}>{prefixText}</span>
-                </div>
+                {unitPosition === "start" ? renderUnit() : ''}
                 <input
                     id={inputId}
                     className={styles.input}
@@ -57,10 +63,11 @@ function NumberFieldPrefix({ prefixText, label, value, onChange, showError }) {
                     onBlur={handleBlur}
                     onChange={handleChange}
                 ></input>
+                {unitPosition === 'end' ? renderUnit() : ''}
             </div>
             {fieldRequired()}
         </div>
     );
 }
 
-export default NumberFieldPrefix;
+export default NumberField;

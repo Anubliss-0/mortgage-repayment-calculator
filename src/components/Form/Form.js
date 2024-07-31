@@ -1,6 +1,5 @@
 // import React from 'react';
-import NumberFieldPrefix from '../NumberFieldPrefix/NumberFieldPrefix';
-import NumberFieldSuffix from '../NumberFieldSuffix/NumberFieldSuffix';
+import NumberField from '../NumberField/NumberField';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import styles from './Form.module.scss'
 import { useState } from 'react';
@@ -58,27 +57,30 @@ function Form({ onSubmit }) {
                 className={styles.form}
                 onSubmit={handleSubmit}
             >
-                <NumberFieldPrefix
-                    prefixText={"€"}
+                <NumberField
+                    unit={"€"}
                     label={t('mortgageAmount')}
                     value={formData.mortgageAmount}
                     onChange={(value) => handleInputChange('mortgageAmount', value)}
                     showError={emptyElements.includes('mortgageAmount') && showErrors}
+                    unitPosition={'start'}
                 />
                 <div>
-                    <NumberFieldSuffix
-                        suffixText={"%"}
-                        label={t('interestRate')}
-                        value={formData.interestRate}
-                        onChange={(value) => handleInputChange('interestRate', value)}
-                        showError={emptyElements.includes('interestRate') && showErrors}
-                    />
-                    <NumberFieldSuffix
-                        suffixText={t('years')}
+                    <NumberField
+                        unit={t('years')}
                         label={t('mortgageTerm')}
                         value={formData.mortgageTerm}
                         onChange={(value) => handleInputChange('mortgageTerm', value)}
                         showError={emptyElements.includes('mortgageTerm') && showErrors}
+                        unitPosition={'end'}
+                    />
+                    <NumberField
+                        unit={"%"}
+                        label={t('interestRate')}
+                        value={formData.interestRate}
+                        onChange={(value) => handleInputChange('interestRate', value)}
+                        showError={emptyElements.includes('interestRate') && showErrors}
+                        unitPosition={'end'}
                     />
                 </div>
                 <Fieldset 

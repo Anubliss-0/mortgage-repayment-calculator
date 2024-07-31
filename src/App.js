@@ -47,6 +47,7 @@ function App() {
       <button onClick={() => changeLanguage('nl')}>Nederlands</button>
       <button onClick={() => changeLanguage('es')}>Español</button>
       <button onClick={() => changeLanguage('de')}>Deutsch</button>
+      <button onClick={() => changeLanguage('fr')}>Fracais</button>
       <Form onSubmit={calculateResults} />
       <Results
         monthlyRepayments={monthlyRepayments}
