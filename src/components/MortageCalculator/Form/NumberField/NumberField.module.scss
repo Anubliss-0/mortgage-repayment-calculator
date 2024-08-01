@@ -2,6 +2,42 @@
 @import '../../../../styles/utilities.scss';
 @import '../../../../styles/typography.scss';
 
+$state-colors: (
+    default: (
+        border: $slate-500,
+        unit-bg: $slate-100,
+        unit-color: $slate-700
+    ),
+    hover: (
+        border: $slate-900
+    ),
+    focus: (
+        border: $lime,
+        unit-bg: $lime,
+        unit-color: $slate-900
+    ),
+    invalid: (
+        border: $red,
+        unit-bg: $red,
+        unit-color: $white
+    )
+);
+
+@function get-state-color($state, $property) {
+    @return map-get(map-get($state-colors, $state), $property);
+}
+
+@mixin state-styles($state) {
+    border-color: get-state-color($state, border);
+
+    .unit {
+        span {
+            background-color: get-state-color($state, unit-bg);
+            color: get-state-color($state, unit-color);
+        }
+    }
+}
+
 .container {
     @include flex-column-start;
     max-width: 26.5rem;
@@ -13,62 +49,57 @@
 }
 
 .fieldOuter {
-    height: 3rem;
-    border-radius: 4px;
-    border-width: 1px;
-    border-color: $slate-500;
-    border-style: solid;
-    margin-top: $spacing-150;
     @include flex-row;
     @include text-preset-3;
-    // TODO: This can applied to whole app higher up.
+    height: 3rem;
+    border: 1px solid get-state-color(default, border);
+    border-radius: 4px;
+    margin-top: $spacing-150;
     box-sizing: border-box;
     overflow: hidden;
-    transition-duration: 400ms;
+    transition: border-color 400ms;
 
-    &.active {
-        border-color: $lime;
-    }
+    input {
+        width: 100%;
+        border: none;
+        padding-left: $spacing-200;
+        color: $slate-900;
+        @include text-preset-3;
 
-    &.hover {
-        border-color: $slate-900;
-    }
-
-    &.error {
-        border-color: $red;
-    }
-}
-
-.unit {
-    @include flex-row-center;
-
-    span {
-        color: $slate-700;
-        padding: $spacing-150;
-        background-color: $slate-100;
-        transition-duration: 400ms;
-        @include text-preset-4;
-
-        &.active {
-            background-color: $lime;
-            color: $slate-900;
-        }
-
-        &.error {
-            background-color: $red;
-            color: $white;
+        &:focus {
+            outline: none;
         }
     }
-}
 
-.input {
-    width: 100%;
-    border-style: none;
-    padding-left: $spacing-200;
-    color: $slate-900;
-    @include text-preset-3;
+    .unit {
+        @include flex-row-center;
 
-    &:focus {
-        outline: none;
+        span {
+            color: get-state-color(default, unit-color);
+            padding: $spacing-150;
+            background-color: get-state-color(default, unit-bg);
+            transition: background-color 400ms, color 400ms;
+            @include text-preset-4;
+        }
+    }
+
+    &:hover {
+        @include state-styles(hover);
+
+        &:focus-within {
+            @include state-styles(focus);
+        }
+
+        &.invalid {
+            @include state-styles(invalid);
+        }
+    }
+
+    &:focus-within {
+        @include state-styles(focus);
+    }
+
+    &.invalid {
+        @include state-styles(invalid);
     }
 }
