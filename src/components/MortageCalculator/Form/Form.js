@@ -10,6 +10,8 @@ import styles from './Form.module.scss'
 
 function Form({ onSubmit }) {
     const mortgageAmountRef = useRef(null);
+    const mortgageTermRef = useRef(null);
+    const fieldRefs = [mortgageAmountRef, mortgageTermRef]
     const { t } = useTranslation();
     const [showErrors, setShowErrors] = useState(false);
 
@@ -19,6 +21,13 @@ function Form({ onSubmit }) {
         'interestRate',
         'mortgageType'
     ]);
+
+    const setFocusOnFirstEmpty = () => {
+        const emptyRef = fieldRefs.find(ref => ref.current && ref.current.value === '');
+        if (emptyRef && emptyRef.current) {
+          emptyRef.current.focus();
+        }
+      };
 
     const [formData, setFormData] = useState({
         mortgageAmount: '',
@@ -49,7 +58,7 @@ function Form({ onSubmit }) {
             onSubmit(formData);
         } else {
             setShowErrors(true);
-            mortgageAmountRef.current.focus()
+            setFocusOnFirstEmpty()
         }
     };
 
@@ -78,6 +87,7 @@ function Form({ onSubmit }) {
                             onChange={(value) => handleInputChange('mortgageTerm', value)}
                             showError={emptyElements.includes('mortgageTerm') && showErrors}
                             unitPosition={'end'}
+                            ref={mortgageTermRef}
                         />
                         <NumberField
                             unit={"%"}
