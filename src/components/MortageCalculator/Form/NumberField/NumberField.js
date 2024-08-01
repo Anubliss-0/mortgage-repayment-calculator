@@ -1,6 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
-import { useId } from 'react';
+import { useState, useId } from 'react';
 
 import styles from './NumberField.module.scss'
 
