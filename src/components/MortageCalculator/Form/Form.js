@@ -9,10 +9,11 @@ import SubmitButton from './SubmitButton/SubmitButton';
 import styles from './Form.module.scss'
 
 function Form({ onSubmit }) {
+    const { t } = useTranslation();
     const mortgageAmountRef = useRef(null);
     const mortgageTermRef = useRef(null);
     const fieldRefs = [mortgageAmountRef, mortgageTermRef]
-    const { t } = useTranslation();
+    
     const [showErrors, setShowErrors] = useState(false);
 
     const [emptyElements, setEmptyElements] = useState([
@@ -21,6 +22,13 @@ function Form({ onSubmit }) {
         'interestRate',
         'mortgageType'
     ]);
+    
+    const [formData, setFormData] = useState({
+        mortgageAmount: '',
+        mortgageTerm: '',
+        interestRate: '',
+        mortgageType: ''
+    });
 
     const setFocusOnFirstEmpty = () => {
         const emptyRef = fieldRefs.find(ref => ref.current && ref.current.value === '');
@@ -28,13 +36,6 @@ function Form({ onSubmit }) {
           emptyRef.current.focus();
         }
       };
-
-    const [formData, setFormData] = useState({
-        mortgageAmount: '',
-        mortgageTerm: '',
-        interestRate: '',
-        mortgageType: ''
-    });
 
     const handleInputChange = (key, value) => {
         const newFormData = {
@@ -75,7 +76,7 @@ function Form({ onSubmit }) {
                         label={t('mortgageAmount')}
                         value={formData.mortgageAmount}
                         onChange={(value) => handleInputChange('mortgageAmount', value)}
-                        showError={emptyElements.includes('mortgageAmount') && showErrors}
+                        showInvalid={emptyElements.includes('mortgageAmount') && showErrors}
                         unitPosition={'start'}
                         ref={mortgageAmountRef}
                     />
@@ -85,7 +86,7 @@ function Form({ onSubmit }) {
                             label={t('mortgageTerm')}
                             value={formData.mortgageTerm}
                             onChange={(value) => handleInputChange('mortgageTerm', value)}
-                            showError={emptyElements.includes('mortgageTerm') && showErrors}
+                            showInvalid={emptyElements.includes('mortgageTerm') && showErrors}
                             unitPosition={'end'}
                             ref={mortgageTermRef}
                         />
@@ -94,7 +95,7 @@ function Form({ onSubmit }) {
                             label={t('interestRate')}
                             value={formData.interestRate}
                             onChange={(value) => handleInputChange('interestRate', value)}
-                            showError={emptyElements.includes('interestRate') && showErrors}
+                            showInvalid={emptyElements.includes('interestRate') && showErrors}
                             unitPosition={'end'}
                         />
                     </div>

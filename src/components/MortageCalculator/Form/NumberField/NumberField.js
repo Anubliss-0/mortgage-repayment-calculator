@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './NumberField.module.scss'
 
 
-const NumberField = forwardRef(function NumberField({ unit, label, value, onChange, showError, unitPosition }, ref) {
+const NumberField = forwardRef(function NumberField({ unit, label, value, onChange, showInvalid, unitPosition }, ref) {
     const inputId = useId();
 
     const handleChange = (event) => {
@@ -28,23 +28,23 @@ const NumberField = forwardRef(function NumberField({ unit, label, value, onChan
     )
 
     return (
-        <div className={styles.container}>
+        <div className={styles.numberField}>
             <label htmlFor={inputId}>{label}</label>
-            <div className={`${styles.fieldOuter} ${showError && value.length < 1 ? styles.invalid : ''}`}>
+            <div className={`${styles.fieldInput} ${showInvalid && value.length < 1 ? styles.invalid : ''}`}>
                 {unitPosition === "start" && renderUnit()}
                 <input
                     id={inputId}
                     type='text'
                     value={value}
                     aria-required='true'
-                    aria-invalid={showError}
-                    aria-errormessage={showError ? `${inputId}-error` : null}
+                    aria-invalid={showInvalid}
+                    aria-errormessage={showInvalid ? `${inputId}-error` : null}
                     onChange={handleChange}
                     ref={ref}
                 ></input>
                 {unitPosition === 'end' && renderUnit()}
             </div>
-            {showError && renderFieldRequired()}
+            {showInvalid && renderFieldRequired()}
         </div>
     );
 });
@@ -54,7 +54,7 @@ NumberField.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.number,
     onChange: PropTypes.func.isRequired,
-    showError: PropTypes.bool.isRequired,
+    showInvalid: PropTypes.bool.isRequired,
     unitPosition: PropTypes.string.isRequired,
     ref: PropTypes.string.isRequired
 }

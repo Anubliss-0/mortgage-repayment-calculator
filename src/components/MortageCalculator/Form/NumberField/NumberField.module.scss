@@ -38,7 +38,7 @@ $state-colors: (
     }
 }
 
-.container {
+.numberField {
     @include flex-column-start;
     max-width: 26.5rem;
 
@@ -48,7 +48,7 @@ $state-colors: (
     }
 }
 
-.fieldOuter {
+.fieldInput {
     @include flex-row;
     @include text-preset-3;
     height: 3rem;
@@ -58,18 +58,6 @@ $state-colors: (
     box-sizing: border-box;
     overflow: hidden;
     transition: border-color 400ms;
-
-    input {
-        width: 100%;
-        border: none;
-        padding-left: $spacing-200;
-        color: $slate-900;
-        @include text-preset-3;
-
-        &:focus {
-            outline: none;
-        }
-    }
 
     .unit {
         @include flex-row-center;
@@ -82,6 +70,19 @@ $state-colors: (
             @include text-preset-4;
         }
     }
+    
+    input {
+        width: 100%;
+        border: none;
+        padding-left: $spacing-200;
+        color: $slate-900;
+        @include text-preset-3;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
 
     &:hover {
         @include state-styles(hover);
