@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useTranslation } from '../../../i18n';
 import PropTypes from 'prop-types';
 
@@ -9,6 +9,7 @@ import SubmitButton from './SubmitButton/SubmitButton';
 import styles from './Form.module.scss'
 
 function Form({ onSubmit }) {
+    const mortgageAmountRef = useRef(null);
     const { t } = useTranslation();
     const [showErrors, setShowErrors] = useState(false);
 
@@ -48,6 +49,7 @@ function Form({ onSubmit }) {
             onSubmit(formData);
         } else {
             setShowErrors(true);
+            mortgageAmountRef.current.focus()
         }
     };
 
@@ -66,6 +68,7 @@ function Form({ onSubmit }) {
                         onChange={(value) => handleInputChange('mortgageAmount', value)}
                         showError={emptyElements.includes('mortgageAmount') && showErrors}
                         unitPosition={'start'}
+                        ref={mortgageAmountRef}
                     />
                     <div>
                         <NumberField

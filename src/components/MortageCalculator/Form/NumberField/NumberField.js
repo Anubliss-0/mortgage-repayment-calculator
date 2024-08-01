@@ -1,9 +1,10 @@
-import { useState, useId } from 'react';
+import { useState, useId, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './NumberField.module.scss'
 
-function NumberField({ unit, label, value, onChange, showError, unitPosition }) {
+
+const NumberField = forwardRef(function NumberField({ unit, label, value, onChange, showError, unitPosition }, ref) {
     const [isActive, setIsActive] = useState(false);
     const [mouseHover, setMouseHover] = useState(false);
     const inputId = useId();
@@ -65,13 +66,14 @@ function NumberField({ unit, label, value, onChange, showError, unitPosition }) 
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     onChange={handleChange}
+                    ref={ref}
                 ></input>
                 {unitPosition === 'end' && renderUnit()}
             </div>
             {showError && renderFieldRequired()}
         </div>
     );
-}
+});
 
 NumberField.propTypes = {
     unit: PropTypes.string.isRequired,
