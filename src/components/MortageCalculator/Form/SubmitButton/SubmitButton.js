@@ -1,10 +1,7 @@
-function SubmitButton({onSubmit}) {
+function SubmitButton() {
 
     return (
-        <button
-            onSubmit={onSubmit}
-
-        >
+        <button>
             Submit!
         </button>
     )

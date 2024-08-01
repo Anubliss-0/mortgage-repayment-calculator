@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from '../../../i18n';
+import PropTypes from 'prop-types';
 
 import Fieldset from './FieldSet/FieldSet';
 import NumberField from './NumberField/NumberField';
@@ -91,6 +92,10 @@ function Form({ onSubmit }) {
             </form>
         </>
     );
+}
+
+Form.propTypes = {
+    onSubmit: PropTypes.func.isRequired
 }
 
 export default Form;

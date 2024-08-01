@@ -1,4 +1,5 @@
 import { useTranslation } from'../../../../i18n';
+import PropTypes from 'prop-types';
 
 import RadioButton from './RadioButton/RadioButton';
 
@@ -29,6 +30,12 @@ function Fieldset({onChange, formData, showError}) {
             {showError && renderFieldRequired()}
         </div>
     )
+}
+
+Fieldset.propTypes = {
+    onChange: PropTypes.func.isRequired,
+    formData: PropTypes.object.isRequired,
+    showError: PropTypes.bool.isRequired
 }
 
 export default Fieldset;

@@ -1,4 +1,5 @@
 import { useState, useId } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './NumberField.module.scss'
 
@@ -68,6 +69,15 @@ function NumberField({ unit, label, value, onChange, showError, unitPosition }) 
             {showError && renderFieldRequired()}
         </div>
     );
+}
+
+NumberField.propTypes = {
+    unit: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    value: PropTypes.number,
+    onChange: PropTypes.func.isRequired,
+    showError: PropTypes.bool.isRequired,
+    unitPosition: PropTypes.string.isRequired
 }
 
 export default NumberField;

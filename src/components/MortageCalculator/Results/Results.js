@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next';
-import '../../../i18n'; // Import the i18n configuration
+import PropTypes from 'prop-types';
+import { useTranslation } from '../../../i18n';
 
 function Results({ monthlyRepayments, total, showResults }) {
     const { t } = useTranslation();
@@ -37,6 +37,12 @@ function Results({ monthlyRepayments, total, showResults }) {
             )}
         </section>
     );
+}
+
+Results.propTypes = {
+    monthlyRepayments: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    showResults: PropTypes.bool.isRequired
 }
 
 export default Results;
