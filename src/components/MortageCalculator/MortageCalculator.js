@@ -24,7 +24,7 @@ function MortgageCalculator() {
   };
 
   return (
-    <div className="App">
+    <main>
       <button onClick={() => changeLanguage('en')}>English</button>
       <button onClick={() => changeLanguage('nl')}>Nederlands</button>
       <button onClick={() => changeLanguage('es')}>Español</button>
@@ -36,7 +36,7 @@ function MortgageCalculator() {
         total={total}
         showResults={showResults}
       />
-    </div>
+    </main>
   );
 }
 

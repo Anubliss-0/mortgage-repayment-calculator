@@ -44,7 +44,7 @@ function NumberField({ unit, label, value, onChange, showError, unitPosition }) 
 
 
     const renderFieldRequired = () => (
-        <span>This field is required</span>
+        <span id={`${inputId}-error`}>This field is required</span>
     )
 
     return (
@@ -58,6 +58,8 @@ function NumberField({ unit, label, value, onChange, showError, unitPosition }) 
                     type='text'
                     value={value}
                     aria-required='true'
+                    aria-invalid={showError}
+                    aria-describedby={showError ? `${inputId}-error` : null}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     onFocus={handleFocus}
@@ -77,7 +79,8 @@ NumberField.propTypes = {
     value: PropTypes.number,
     onChange: PropTypes.func.isRequired,
     showError: PropTypes.bool.isRequired,
-    unitPosition: PropTypes.string.isRequired
+    unitPosition: PropTypes.string.isRequired,
+    ref: PropTypes.string.isRequired
 }
 
 export default NumberField;

@@ -10,7 +10,6 @@ function Fieldset({onChange, formData, showError}) {
 
     return (
         <div>
-            <fieldset>
                 <legend>{t("mortgageType")}</legend>
                 <RadioButton
                     label={t('repayment')}
@@ -26,7 +25,6 @@ function Fieldset({onChange, formData, showError}) {
                     onChange={(event) => { onChange('mortgageType', event.target.value) }}
                     selected={formData.mortgageType === 'interest only'}
                 />
-            </fieldset>
             {showError && renderFieldRequired()}
         </div>
     )
