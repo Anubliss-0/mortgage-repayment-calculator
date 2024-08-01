@@ -40,8 +40,8 @@ function Results({ monthlyRepayments, total, showResults }) {
 }
 
 Results.propTypes = {
-    monthlyRepayments: PropTypes.number.isRequired,
-    total: PropTypes.number.isRequired,
+    monthlyRepayments: PropTypes.string.isRequired,
+    total: PropTypes.string.isRequired,
     showResults: PropTypes.bool.isRequired
 }
 
