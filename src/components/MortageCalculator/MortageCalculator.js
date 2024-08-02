@@ -30,7 +30,10 @@ function MortgageCalculator() {
       <button onClick={() => changeLanguage('es')}>Español</button>
       <button onClick={() => changeLanguage('de')}>Deutsch</button>
       <button onClick={() => changeLanguage('fr')}>Fracais</button>
-      <Form onSubmit={calculateResults} />
+      <Form
+        onSubmit={calculateResults}
+        onFormClear={setShowResults}
+      />
       <Results
         monthlyRepayments={monthlyRepayments}
         total={total}

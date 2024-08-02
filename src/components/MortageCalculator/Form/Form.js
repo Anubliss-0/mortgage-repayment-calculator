@@ -10,30 +10,32 @@ import SubmitButton from './SubmitButton/SubmitButton';
 
 import styles from './Form.module.scss'
 
-function Form({ onSubmit }) {
+function Form({ onSubmit, onFormClear }) {
     const { t } = useTranslation();
-
-    const fieldRefs = [mortgageAmountRef, mortgageTermRef, repaymentRef, interestOnlyRef]
-    const initialState = {
-        mortgageAmount: '',
-        mortgageTerm: '',
-        interestRate: '',
-        mortgageType: ''
-    };
     
     const mortgageAmountRef = useRef(null);
     const mortgageTermRef = useRef(null);
     const repaymentRef = useRef(null);
     const interestOnlyRef = useRef(null)
-    
-    const [formData, setFormData] = useState(initialState);
-    const [showErrors, setShowErrors] = useState(false);
-    const [emptyElements, setEmptyElements] = useState([
+    const fieldRefs = [mortgageAmountRef, mortgageTermRef, repaymentRef, interestOnlyRef]
+
+    const initialFormStates = {
+        mortgageAmount: '',
+        mortgageTerm: '',
+        interestRate: '',
+        mortgageType: ''
+    };
+
+    const initialEmptyElements = [
         'mortgageAmount',
         'mortgageTerm',
         'interestRate',
         'mortgageType'
-    ]);
+    ]
+    
+    const [formData, setFormData] = useState(initialFormStates);
+    const [showErrors, setShowErrors] = useState(false);
+    const [emptyElements, setEmptyElements] = useState(initialEmptyElements);
 
     const handleInputChange = (key, value) => {
         const newFormData = {
@@ -61,6 +63,13 @@ function Form({ onSubmit }) {
         }
     };
 
+    const resetForm = () => {
+        setFormData(initialFormStates)
+        setShowErrors(false)
+        onFormClear(false)
+        setEmptyElements(initialEmptyElements)
+    }
+
     return (
         <>
             <form
@@ -69,6 +78,10 @@ function Form({ onSubmit }) {
             >
                 <fieldset>
                     <legend>Mortgage Calculator</legend>
+                    <button 
+                        type='button'
+                        onClick={resetForm}
+                    >Clear All</button>
                     <NumberField
                         unit={"€"}
                         label={t('mortgageAmount')}
@@ -112,7 +125,8 @@ function Form({ onSubmit }) {
 }
 
 Form.propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
+    onFormClear: PropTypes.func.isRequired
 }
 
 export default Form;
