@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { useTranslation } from '../../../i18n';
 import PropTypes from 'prop-types';
 
-import Fieldset from './FieldSet/FieldSet';
+import RadioButtons from './RadioButtons/RadioButtons';
 import NumberField from './NumberField/NumberField';
 import SubmitButton from './SubmitButton/SubmitButton';
 
@@ -12,7 +12,8 @@ function Form({ onSubmit }) {
     const { t } = useTranslation();
     const mortgageAmountRef = useRef(null);
     const mortgageTermRef = useRef(null);
-    const fieldRefs = [mortgageAmountRef, mortgageTermRef]
+    const mortgageTypeRef = useRef(null);
+    const fieldRefs = [mortgageAmountRef, mortgageTermRef, mortgageTypeRef]
     
     const [showErrors, setShowErrors] = useState(false);
 
@@ -99,10 +100,11 @@ function Form({ onSubmit }) {
                             unitPosition={'end'}
                         />
                     </div>
-                    <Fieldset
+                    <RadioButtons
                         onChange={handleInputChange}
                         formData={formData}
                         showError={emptyElements.includes('mortgageTerm') && showErrors}
+                        ref={mortgageTypeRef}
                     />
                 </fieldset>
                 <SubmitButton />

@@ -1,16 +1,18 @@
+import { useId } from 'react';
 import { useTranslation } from'../../../../i18n';
 import PropTypes from 'prop-types';
 
 import RadioButton from './RadioButton/RadioButton';
 
-function Fieldset({onChange, formData, showError}) {
+function RadioButtons({onChange, formData, showError}) {
+    const radioId = useId();
     const { t } = useTranslation();
 
     const renderFieldRequired = () => <span>This field is required</span>
 
     return (
-        <div>
-                <legend>{t("mortgageType")}</legend>
+        <div role='radiogroup' aria-labelledby={`${radioId}-label`}>
+                <h2 id={`${radioId}-label`}>{t("mortgageType")}</h2>
                 <RadioButton
                     label={t('repayment')}
                     collectionName={"mortgageType"}
@@ -30,10 +32,10 @@ function Fieldset({onChange, formData, showError}) {
     )
 }
 
-Fieldset.propTypes = {
+RadioButtons.propTypes = {
     onChange: PropTypes.func.isRequired,
     formData: PropTypes.object.isRequired,
     showError: PropTypes.bool.isRequired
 }
 
-export default Fieldset;
+export default RadioButtons;

@@ -12,22 +12,29 @@ function RadioButton({ collectionName, label, value, selected, onChange }) {
     const renderCheckbox = () => selected ? <Icon icon="ph:radio-button-fill" /> : <Icon icon="ph:circle" />
 
     return (
-        <label
-            className={`${styles.radioButton} ${mouseHover ? styles.hover : ''} ${selected ? styles.selected : ''}`}
-            onMouseEnter={() => setMouseHover(true)}
-            onMouseLeave={() => setMouseHover(false)}
-        >{label}
-            <div className={styles.checkbox}>
-                {renderCheckbox()}
-            </div>
+        <div className={styles.radioButtonContainer}>
             <input
-                type='radio'
+                type="radio"
                 id={id}
                 name={collectionName}
                 value={value}
                 onChange={onChange}
-            ></input>
-        </label>
+                checked={selected}
+                className={styles.radioInput}
+            />
+            <label
+                htmlFor={id}
+                className={`${styles.radioButton} ${mouseHover ? styles.hover : ''} ${selected ? styles.selected : ''}`}
+                onMouseEnter={() => setMouseHover(true)}
+                onMouseLeave={() => setMouseHover(false)}
+                aria-live="polite" // Informing about dynamic changes
+            >
+                {label}
+                <div className={styles.checkbox} role="checkbox" aria-checked={selected} aria-live="polite">
+                    {renderCheckbox()}
+                </div>
+            </label>
+        </div>
     )
 }
 
