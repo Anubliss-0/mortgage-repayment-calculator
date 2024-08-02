@@ -9,7 +9,7 @@ function RadioButtons({onChange, formData, showInvalid, ref1, ref2}) {
     const { t } = useTranslation();
 
     const renderFieldRequired = () => (
-        <span id={`${id}-error`} aria-live="assertive" role="alert">This field is required</span>
+        <span id={`${id}-error`} aria-live="assertive" role="alert">{t('fieldRequired')}</span>
     )
 
     return (

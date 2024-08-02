@@ -13,12 +13,14 @@ i18n
           "mortgageType": "Mortgage Type",
           "repayment": "Repayment",
           "interestOnly": "Interest Only",
+          "calculateRepayments": "Calculate Repayments",
           "resultsInfo": "Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.",
           "yourMonthlyRepayments": "Your monthly repayments",
           "totalRepayments": "Total you'll repay over the term",
           "resultsHere": "Results shown here",
           "yourResults": "Your results",
-          "resultsPlaceholder": "Complete the form and click “calculate repayments” to see what your monthly repayments would be."
+          "resultsPlaceholder": "Complete the form and click “calculate repayments” to see what your monthly repayments would be.",
+          "fieldRequired": "This Field is Required"
         }
       },
       nl: {
@@ -30,12 +32,14 @@ i18n
           "mortgageType": "Hypotheektype",
           "repayment": "Aflossing",
           "interestOnly": "Alleen Rente",
+          "calculateRepayments": "Bereken Terugbetalingen",
           "resultsInfo": "Uw resultaten worden hieronder weergegeven op basis van de door u verstrekte informatie. Om de resultaten aan te passen, bewerkt u het formulier en klikt u opnieuw op 'bereken aflossingen'.",
           "yourMonthlyRepayments": "Uw maandelijkse aflossingen",
           "totalRepayments": "Totaal dat u over de termijn terugbetaalt",
           "resultsHere": "Resultaten hier getoond",
           "yourResults": "Uw resultaten",
-          "resultsPlaceholder": "Vul het formulier in en klik op 'bereken aflossingen' om te zien wat uw maandelijkse aflossingen zouden zijn."
+          "resultsPlaceholder": "Vul het formulier in en klik op 'bereken aflossingen' om te zien wat uw maandelijkse aflossingen zouden zijn.",
+          "fieldRequired": "Dit veld is verplicht"
         }
       },
       fr: {
@@ -47,12 +51,14 @@ i18n
           "mortgageType": "Type de prêt hypothécaire",
           "repayment": "Remboursement",
           "interestOnly": "Intérêts seulement",
+          "calculateRepayments": "Calculer les Remboursements",
           "resultsInfo": "Vos résultats sont affichés ci-dessous en fonction des informations que vous avez fournies. Pour ajuster les résultats, modifiez le formulaire et cliquez à nouveau sur 'calculer les remboursements'.",
           "yourMonthlyRepayments": "Vos remboursements mensuels",
           "totalRepayments": "Total que vous rembourserez sur la durée",
           "resultsHere": "Résultats affichés ici",
           "yourResults": "Vos résultats",
-          "resultsPlaceholder": "Remplissez le formulaire et cliquez sur 'calculer les remboursements' pour voir ce que seraient vos remboursements mensuels."
+          "resultsPlaceholder": "Remplissez le formulaire et cliquez sur 'calculer les remboursements' pour voir ce que seraient vos remboursements mensuels.",
+          "fieldRequired": "Ce champ est requis"
         }
       },
       es: {
@@ -64,12 +70,14 @@ i18n
           "mortgageType": "Tipo de hipoteca",
           "repayment": "Reembolso",
           "interestOnly": "Solo intereses",
+          "calculateRepayments": "Calcular Reembolsos",
           "resultsInfo": "Sus resultados se muestran a continuación según la información proporcionada. Para ajustar los resultados, edite el formulario y haga clic en 'calcular reembolsos' nuevamente.",
           "yourMonthlyRepayments": "Sus reembolsos mensuales",
           "totalRepayments": "Total que reembolsará durante el plazo",
           "resultsHere": "Resultados mostrados aquí",
           "yourResults": "Sus resultados",
-          "resultsPlaceholder": "Complete el formulario y haga clic en 'calcular reembolsos' para ver cuáles serían sus reembolsos mensuales."
+          "resultsPlaceholder": "Complete el formulario y haga clic en 'calcular reembolsos' para ver cuáles serían sus reembolsos mensuales.",
+          "fieldRequired": "Este campo es obligatorio"
       }
       },
       de: {
@@ -81,12 +89,14 @@ i18n
           "mortgageType": "Hypothekentyp",
           "repayment": "Rückzahlung",
           "interestOnly": "Nur Zinsen",
+          "calculateRepayments": "Rückzahlungen Berechnen",
           "resultsInfo": "Ihre Ergebnisse werden unten basierend auf den von Ihnen bereitgestellten Informationen angezeigt. Um die Ergebnisse anzupassen, bearbeiten Sie das Formular und klicken Sie erneut auf 'Rückzahlungen berechnen'.",
           "yourMonthlyRepayments": "Ihre monatlichen Rückzahlungen",
           "totalRepayments": "Gesamtrückzahlung über die Laufzeit",
           "resultsHere": "Hier angezeigte Ergebnisse",
           "yourResults": "Ihre Ergebnisse",
-          "resultsPlaceholder": "Füllen Sie das Formular aus und klicken Sie auf 'Rückzahlungen berechnen', um zu sehen, wie hoch Ihre monatlichen Rückzahlungen wären."
+          "resultsPlaceholder": "Füllen Sie das Formular aus und klicken Sie auf 'Rückzahlungen berechnen', um zu sehen, wie hoch Ihre monatlichen Rückzahlungen wären.",
+          "fieldRequired": "Dieses Feld ist erforderlich"
       }
       }
     },

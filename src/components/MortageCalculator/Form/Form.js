@@ -12,27 +12,28 @@ import styles from './Form.module.scss'
 
 function Form({ onSubmit }) {
     const { t } = useTranslation();
+
+    const fieldRefs = [mortgageAmountRef, mortgageTermRef, repaymentRef, interestOnlyRef]
+    const initialState = {
+        mortgageAmount: '',
+        mortgageTerm: '',
+        interestRate: '',
+        mortgageType: ''
+    };
+    
     const mortgageAmountRef = useRef(null);
     const mortgageTermRef = useRef(null);
     const repaymentRef = useRef(null);
     const interestOnlyRef = useRef(null)
-    const fieldRefs = [mortgageAmountRef, mortgageTermRef, repaymentRef, interestOnlyRef]
-
+    
+    const [formData, setFormData] = useState(initialState);
     const [showErrors, setShowErrors] = useState(false);
-
     const [emptyElements, setEmptyElements] = useState([
         'mortgageAmount',
         'mortgageTerm',
         'interestRate',
         'mortgageType'
     ]);
-
-    const [formData, setFormData] = useState({
-        mortgageAmount: '',
-        mortgageTerm: '',
-        interestRate: '',
-        mortgageType: ''
-    });
 
     const handleInputChange = (key, value) => {
         const newFormData = {

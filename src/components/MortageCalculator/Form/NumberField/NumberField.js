@@ -1,4 +1,5 @@
 import { useId, forwardRef } from 'react';
+import { useTranslation } from '../../../../i18n'
 import PropTypes from 'prop-types';
 
 import styles from './NumberField.module.scss'
@@ -6,6 +7,7 @@ import styles from './NumberField.module.scss'
 
 const NumberField = forwardRef(function NumberField({ unit, label, value, onChange, showInvalid, unitPosition }, ref) {
     const id = useId();
+    const { t } = useTranslation();
 
     const handleChange = (event) => {
         const newValue = event.target.value;
@@ -24,7 +26,7 @@ const NumberField = forwardRef(function NumberField({ unit, label, value, onChan
 
 
     const renderFieldRequired = () => (
-        <span id={`${id}-error`} aria-live="assertive" role="alert">This field is required</span>
+        <span id={`${id}-error`} aria-live="assertive" role="alert">{t('fieldRequired')}</span>
     )
 
     return (
