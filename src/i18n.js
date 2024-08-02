@@ -8,6 +8,7 @@ i18n
       en: {
         translation: {
           "language": "Language",
+          "clearAll": "Clear All",
           "mortgageAmount": "Mortgage Amount",
           "interestRate": "Interest Rate",
           "mortgageTerm": "Mortgage Term",
@@ -27,6 +28,7 @@ i18n
       nl: {
         translation: {
           "language": "Taal",
+          "clearAll": "Alles wissen",
           "mortgageAmount": "Hypotheekbedrag",
           "interestRate": "Rentevoet",
           "mortgageTerm": "Hypotheektermijn",
@@ -47,6 +49,7 @@ i18n
       fr: {
         translation: {
           "language": "Langue",
+          "clearAll": "Tout effacer",
           "mortgageAmount": "Montant du prêt hypothécaire",
           "interestRate": "Taux d'intérêt",
           "mortgageTerm": "Durée du prêt hypothécaire",
@@ -67,6 +70,7 @@ i18n
       es: {
         translation: {
           "language": "Idioma",
+          "clearAll": "Borrar todo",
           "mortgageAmount": "Monto de la hipoteca",
           "interestRate": "Tasa de interés",
           "mortgageTerm": "Plazo de la hipoteca",
@@ -87,6 +91,7 @@ i18n
       de: {
         translation: {
           "language": "Sprache",
+          "clearAll": "Alles löschen",
           "mortgageAmount": "Hypothekenbetrag",
           "interestRate": "Zinssatz",
           "mortgageTerm": "Hypothekenlaufzeit",

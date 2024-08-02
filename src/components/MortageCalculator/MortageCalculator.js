@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import { calculateTotalRepayment } from './mortgageCalculatorUtils.js';
 
-import LangugeSelect from '../LanguageSelect/LanguageSelect.js';
 import Form from './Form/Form.js';
 import Results from './Results/Results.js';
 
@@ -23,7 +22,6 @@ function MortgageCalculator() {
 
   return (
     <main>
-      <LangugeSelect />
       <Form
         onSubmit={calculateResults}
         onFormClear={setShowResults}

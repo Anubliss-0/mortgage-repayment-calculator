@@ -81,7 +81,7 @@ function Form({ onSubmit, onFormClear }) {
                     <button 
                         type='button'
                         onClick={resetForm}
-                    >Clear All</button>
+                    >{t("clearAll")}</button>
                     <NumberField
                         unit={"€"}
                         label={t('mortgageAmount')}

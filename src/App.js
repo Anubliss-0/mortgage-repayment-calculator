@@ -1,8 +1,12 @@
+import LanguageSelect from './components/LanguageSelect/LanguageSelect.js';
 import MortgageCalculator from './components/MortageCalculator/MortageCalculator.js';
 
 function App() {
   return (
-    <MortgageCalculator />
+    <>
+      <LanguageSelect />
+      <MortgageCalculator />
+    </>
   )
 }
 

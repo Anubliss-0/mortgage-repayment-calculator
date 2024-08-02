@@ -1,6 +1,6 @@
 import { i18n, useTranslation } from '../../i18n';
 
-function LangugeSelect() {
+function LanguageSelect() {
     const { t } = useTranslation();
 
     const changeLanguage = (event) => {
@@ -9,14 +9,9 @@ function LangugeSelect() {
     };
 
     return (
-        <div>
-            <label htmlFor="language-select">{t('language')}</label>
-            <select 
-                id="language-select" 
-                onChange={changeLanguage} 
-                aria-label="Select language"
-                role="combobox"
-                aria-live="polite"
+        <label>{t('language')}
+            <select
+                onChange={changeLanguage}
             >
                 <option value="en">English</option>
                 <option value="nl">Nederlands</option>
@@ -24,8 +19,8 @@ function LangugeSelect() {
                 <option value="de">Deutsch</option>
                 <option value="fr">Français</option>
             </select>
-        </div>
+        </label>
     );
 }
 
-export default LangugeSelect;
+export default LanguageSelect;
