@@ -4,6 +4,4 @@ html {
 
 *, *::before, *::after {
     box-sizing: border-box;
-  }
-
-  /* TODO: This global stuff can maybe be done with reacts createGlobalStyle hook. But it may mess up the rem sizing so be careful. */
+}

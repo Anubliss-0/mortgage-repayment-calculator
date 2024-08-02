@@ -1,4 +1,3 @@
-import './App.css';
 import MortgageCalculator from './components/MortageCalculator/MortageCalculator.js';
 
 function App() {
