@@ -5,12 +5,12 @@ import { calculateTotalRepayment } from './mortgageCalculatorUtils.js';
 import Form from './Form/Form.js';
 import Results from './Results/Results.js';
 
+import styles from './MortgageCalculator.module.scss'
+
 function MortgageCalculator() {
   const [monthlyRepayments, setMonthlyRepayments] = useState();
   const [total, setTotal] = useState();
   const [showResults, setShowResults] = useState(false);
-
-  
 
   const calculateResults = (formData) => {
     const newTotal = calculateTotalRepayment(formData.mortgageAmount, formData.mortgageTerm, formData.interestRate, formData.mortgageType);
@@ -21,7 +21,7 @@ function MortgageCalculator() {
   };
 
   return (
-    <main>
+    <main className={styles.main}>
       <Form
         onSubmit={calculateResults}
         onFormClear={setShowResults}

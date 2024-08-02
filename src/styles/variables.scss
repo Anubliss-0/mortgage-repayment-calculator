@@ -11,10 +11,8 @@ $white: #FFFFFF;
 
 $red: #D73328;
 
-/* Font Families */
 $font-primary: "Plus Jakarta Sans", sans-serif;
 
-/* Line Heights */
 $line-height-125: 1.25;
 $line-height-150: 1.5;
 
@@ -23,10 +21,16 @@ $line-height-150: 1.5;
 $font-weight-bold: 700;
 $font-weight-medium: 500;
 
-/* Element spacing */
-$spacing-500: 40px;
-$spacing-400: 32px;
-$spacing-300: 20.25rem;
-$spacing-200: 16px;
-$spacing-150: 12px;
-$spacing-100: 8px;
+$spacing-500: 2.5rem;
+$spacing-400: 2rem;
+$spacing-300: 1.5rem;
+$spacing-200: 1rem;
+$spacing-150: .75rem;
+$spacing-100: .5rem;
+
+$flex-start: flex-start;
+$flex-center: center;
+$flex-space-between: space-between;
+$flex-column: column;
+$flex-row: row;
+$max-width-tablet: 48rem;

@@ -1,19 +1,17 @@
 import PropTypes from 'prop-types';
 import { useTranslation } from '../../../i18n';
 
+import styles from './Results.module.scss'
+
 function Results({ monthlyRepayments, total, showResults }) {
     const { t } = useTranslation();
 
     return (
-        <section>
+        <section className={styles.results}>
             {showResults ? (
                 <div>
-                    <header>
-                        <h2>{t("yourResults")}</h2>
-                        <p>
-                            {t("resultsInfo")}
-                        </p>
-                    </header>
+                    <h2>{t("yourResults")}</h2>
+                    <p>{t("resultsInfo")}</p>
                     <div>
                         <div>
                             <span>{t("yourMonthlyRepayments")}</span>
@@ -27,12 +25,8 @@ function Results({ monthlyRepayments, total, showResults }) {
                 </div>
             ) : (
                 <div>
-                    <header>
-                        <h2>{t("resultsHere")}</h2>
-                        <p>
-                            {t("resultsPlaceholder")}
-                        </p>
-                    </header>
+                    <h2>{t("resultsHere")}</h2>
+                    <p>{t("resultsPlaceholder")}</p>
                 </div>
             )}
         </section>

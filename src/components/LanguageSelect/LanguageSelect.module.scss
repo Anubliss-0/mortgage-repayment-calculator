@@ -1,0 +1,8 @@
+@import '../../styles/variables.scss';
+@import '../../styles/utilities.scss';
+
+.header {
+    @include flex-row-start;
+    width: 100%;
+    max-width: 63rem;
+}

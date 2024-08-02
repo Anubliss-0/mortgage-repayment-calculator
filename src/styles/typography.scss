@@ -1,17 +1,16 @@
 @import './variables';
 
-/* Typography Presets */
 @mixin text-preset-1 {
   font-family: $font-primary;
-  font-size: 56px;
+  font-size: 24;
   line-height: $line-height-125;
   letter-spacing: -0.0625rem;
-  font-weight: $font-weight-bold;
+  font-weight: bold;
 }
 
 @mixin text-preset-2 {
   font-family: $font-primary;
-  font-size: 20.25rem;
+  font-size: 1.5rem;
   line-height: $line-height-125;
   letter-spacing: -0.0625rem;
   font-weight: $font-weight-bold;

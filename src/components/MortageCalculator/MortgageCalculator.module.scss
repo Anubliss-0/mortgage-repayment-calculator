@@ -1,0 +1,13 @@
+@import '../../styles/variables.scss';
+@import '../../styles/utilities.scss';
+
+.main {
+    @include flex-row-center;
+    max-width: 63rem;
+    border-radius: 1.5rem;
+    background-color: $white;
+
+    @include respond-to-tablet {
+        @include flex-column-center;
+    }
+}

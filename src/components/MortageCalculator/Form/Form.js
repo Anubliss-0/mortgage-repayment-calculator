@@ -12,7 +12,7 @@ import styles from './Form.module.scss'
 
 function Form({ onSubmit, onFormClear }) {
     const { t } = useTranslation();
-    
+
     const mortgageAmountRef = useRef(null);
     const mortgageTermRef = useRef(null);
     const repaymentRef = useRef(null);
@@ -32,7 +32,7 @@ function Form({ onSubmit, onFormClear }) {
         'interestRate',
         'mortgageType'
     ]
-    
+
     const [formData, setFormData] = useState(initialFormStates);
     const [showErrors, setShowErrors] = useState(false);
     const [emptyElements, setEmptyElements] = useState(initialEmptyElements);
@@ -77,46 +77,52 @@ function Form({ onSubmit, onFormClear }) {
                 onSubmit={handleSubmit}
             >
                 <fieldset>
-                    <legend>Mortgage Calculator</legend>
-                    <button 
-                        type='button'
-                        onClick={resetForm}
-                    >{t("clearAll")}</button>
-                    <NumberField
-                        unit={"€"}
-                        label={t('mortgageAmount')}
-                        value={formData.mortgageAmount}
-                        onChange={(value) => handleInputChange('mortgageAmount', value)}
-                        showInvalid={emptyElements.includes('mortgageAmount') && showErrors}
-                        unitPosition={'start'}
-                        ref={mortgageAmountRef}
-                    />
-                    <div>
+                    <legend className={styles.legend}>
+                        Mortgage Calculator
+                        <button
+                            type='button'
+                            onClick={resetForm}
+                        >
+                            {t("clearAll")}
+                        </button>
+                    </legend>
+                    <div className={styles.inputsContainer}>
                         <NumberField
-                            unit={t('years')}
-                            label={t('mortgageTerm')}
-                            value={formData.mortgageTerm}
-                            onChange={(value) => handleInputChange('mortgageTerm', value)}
-                            showInvalid={emptyElements.includes('mortgageTerm') && showErrors}
-                            unitPosition={'end'}
-                            ref={mortgageTermRef}
+                            unit={"€"}
+                            label={t('mortgageAmount')}
+                            value={formData.mortgageAmount}
+                            onChange={(value) => handleInputChange('mortgageAmount', value)}
+                            showInvalid={emptyElements.includes('mortgageAmount') && showErrors}
+                            unitPosition={'start'}
+                            ref={mortgageAmountRef}
                         />
-                        <NumberField
-                            unit={"%"}
-                            label={t('interestRate')}
-                            value={formData.interestRate}
-                            onChange={(value) => handleInputChange('interestRate', value)}
-                            showInvalid={emptyElements.includes('interestRate') && showErrors}
-                            unitPosition={'end'}
+                        <div className={styles.smallInputs}>
+                            <NumberField
+                                unit={t('years')}
+                                label={t('mortgageTerm')}
+                                value={formData.mortgageTerm}
+                                onChange={(value) => handleInputChange('mortgageTerm', value)}
+                                showInvalid={emptyElements.includes('mortgageTerm') && showErrors}
+                                unitPosition={'end'}
+                                ref={mortgageTermRef}
+                            />
+                            <NumberField
+                                unit={"%"}
+                                label={t('interestRate')}
+                                value={formData.interestRate}
+                                onChange={(value) => handleInputChange('interestRate', value)}
+                                showInvalid={emptyElements.includes('interestRate') && showErrors}
+                                unitPosition={'end'}
+                            />
+                        </div>
+                        <RadioButtons
+                            onChange={handleInputChange}
+                            formData={formData}
+                            showInvalid={emptyElements.includes('mortgageType') && showErrors}
+                            ref1={repaymentRef}
+                            ref2={interestOnlyRef}
                         />
                     </div>
-                    <RadioButtons
-                        onChange={handleInputChange}
-                        formData={formData}
-                        showInvalid={emptyElements.includes('mortgageType') && showErrors}
-                        ref1={repaymentRef}
-                        ref2={interestOnlyRef}
-                    />
                 </fieldset>
                 <SubmitButton />
             </form>

@@ -1,25 +1,42 @@
-// Consider using utility classes in here!
-// Mixins will allows for classes that can be passed arguments. That would be very cool!
+@import 'variables';
+
+@mixin flex($direction: $flex-row, $justify: $flex-start, $align: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
 
 @mixin flex-column {
-    display: flex;
-    flex-direction: column;
+    @include flex($flex-column);
 }
 
 @mixin flex-column-start {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
+    @include flex($flex-column, $flex-start);
+}
+
+@mixin flex-column-center {
+    @include flex($flex-column, $flex-center, $flex-center);
 }
 
 @mixin flex-row {
-    display: flex;
-    flex-direction: row;
+    @include flex($flex-row);
+}
+
+@mixin flex-row-justify-between {
+    @include flex($flex-row, $flex-space-between);
+}
+
+@mixin flex-row-start {
+    @include flex($flex-row, $flex-start);
 }
 
 @mixin flex-row-center {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    @include flex($flex-row, $flex-center, $flex-center);
+}
+
+@mixin respond-to-tablet {
+    @media (max-width: $max-width-tablet) {
+        @content;
+    }
 }

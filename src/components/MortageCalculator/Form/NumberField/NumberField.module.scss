@@ -2,42 +2,6 @@
 @import '../../../../styles/utilities.scss';
 @import '../../../../styles/typography.scss';
 
-$state-colors: (
-    default: (
-        border: $slate-500,
-        unit-bg: $slate-100,
-        unit-color: $slate-700
-    ),
-    hover: (
-        border: $slate-900
-    ),
-    focus: (
-        border: $lime,
-        unit-bg: $lime,
-        unit-color: $slate-900
-    ),
-    invalid: (
-        border: $red,
-        unit-bg: $red,
-        unit-color: $white
-    )
-);
-
-@function get-state-color($state, $property) {
-    @return map-get(map-get($state-colors, $state), $property);
-}
-
-@mixin state-styles($state) {
-    border-color: get-state-color($state, border);
-
-    .unit {
-        span {
-            background-color: get-state-color($state, unit-bg);
-            color: get-state-color($state, unit-color);
-        }
-    }
-}
-
 .numberField {
     @include flex-column-start;
     max-width: 26.5rem;
@@ -52,7 +16,7 @@ $state-colors: (
     @include flex-row;
     @include text-preset-3;
     height: 3rem;
-    border: 0.0625rem solid get-state-color(default, border);
+    border: 1px solid $slate-500;
     border-radius: 0.25rem;
     margin-top: $spacing-150;
     box-sizing: border-box;
@@ -63,9 +27,9 @@ $state-colors: (
         @include flex-row-center;
 
         span {
-            color: get-state-color(default, unit-color);
+            color: $slate-700;
             padding: $spacing-150;
-            background-color: get-state-color(default, unit-bg);
+            background-color: $slate-100;
             transition: background-color 400ms, color 400ms;
             @include text-preset-4;
         }
@@ -83,24 +47,25 @@ $state-colors: (
         }
     }
 
-
     &:hover {
-        @include state-styles(hover);
-
-        &:focus-within {
-            @include state-styles(focus);
-        }
-
-        &.invalid {
-            @include state-styles(invalid);
-        }
+        border-color: $slate-900;
     }
 
     &:focus-within {
-        @include state-styles(focus);
+        border-color: $lime;
+
+        .unit span {
+            background-color: $lime;
+            color: $slate-900;
+        }
     }
 
     &.invalid {
-        @include state-styles(invalid);
+        border-color: $red;
+
+        .unit span {
+            background-color: $red;
+            color: $white;
+        }
     }
 }

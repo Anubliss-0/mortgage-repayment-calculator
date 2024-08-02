@@ -4,16 +4,37 @@
 
 .form {
     @include flex-column;
-    max-width: 31.25rem;
+    max-width: 26.5rem;
+    margin: $spacing-500;
 
-    fieldset {
-        @include flex-column-start;
+    >fieldset {
         border-style: none;
-        padding: 0;
-        margin: 0;
     }
+}
 
-    legend {
+.legend {
+    @include text-preset-2;
+    @include flex-row-justify-between;
+    color: $slate-900;
+    width: 100%;
+
+    button {
         @include text-preset-4;
+        background: none;
+        border: none;
+        padding: 0rem;
+        text-decoration: underline;
+        color: $slate-700;
     }
+}
+
+.inputsContainer {
+    margin: $spacing-500 0;
+}
+
+.smallInputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-300;
+    margin: $spacing-300 0;
 }

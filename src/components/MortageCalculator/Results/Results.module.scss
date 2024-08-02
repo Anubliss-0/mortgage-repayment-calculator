@@ -1,0 +1,11 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/typography.scss';
+@import '../../../styles/utilities.scss';
+
+.results {
+    @include flex-column-center;
+    background-color: $slate-900;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 1.5rem 1.5rem 5rem;
+}

@@ -1,0 +1,13 @@
+@import './styles/variables.scss';
+@import './styles/utilities.scss';
+
+html {
+    font-size: 16px;
+    background-color: $slate-100;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}

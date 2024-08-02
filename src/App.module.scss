@@ -1,0 +1,8 @@
+@import './styles/variables.scss';
+@import './styles/utilities.scss';
+
+.container {
+    @include flex-column-center;
+    height: 100vh;
+    padding: $spacing-500;
+}
