@@ -4,7 +4,7 @@
 
 .form {
     @include flex-column;
-    max-width: 500px;
+    max-width: 31.25rem;
 
     fieldset {
         @include flex-column-start;

@@ -7,8 +7,8 @@
     flex-direction: row-reverse;
     justify-content: start;
     align-items: center;
-    border: 1px solid $slate-700;
-    border-radius: 4px;
+    border: 0.0625rem solid $slate-700;
+    border-radius: 0.25rem;
     @include text-preset-3;
     height: 3rem;
 
