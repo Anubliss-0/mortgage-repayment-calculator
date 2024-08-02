@@ -30,7 +30,7 @@ const RadioButton = forwardRef(function RadioButton({collectionName, label, valu
                 onMouseLeave={() => setMouseHover(false)}
             >
                 {label}
-                <div className={styles.checkbox} role="checkbox" aria-checked={selected} aria-live="polite">
+                <div className={styles.checkbox} role="checkbox" aria-checked={selected}>
                     {renderCheckbox()}
                 </div>
             </label>

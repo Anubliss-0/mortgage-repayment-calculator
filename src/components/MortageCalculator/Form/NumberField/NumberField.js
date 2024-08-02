@@ -5,7 +5,7 @@ import styles from './NumberField.module.scss'
 
 
 const NumberField = forwardRef(function NumberField({ unit, label, value, onChange, showInvalid, unitPosition }, ref) {
-    const inputId = useId();
+    const id = useId();
 
     const handleChange = (event) => {
         const newValue = event.target.value;
@@ -24,21 +24,21 @@ const NumberField = forwardRef(function NumberField({ unit, label, value, onChan
 
 
     const renderFieldRequired = () => (
-        <span id={`${inputId}-error`}>This field is required</span>
+        <span id={`${id}-error`} aria-live="assertive" role="alert">This field is required</span>
     )
 
     return (
         <div className={styles.numberField}>
-            <label htmlFor={inputId}>{label}</label>
+            <label htmlFor={id}>{label}</label>
             <div className={`${styles.fieldInput} ${showInvalid && value.length < 1 ? styles.invalid : ''}`}>
                 {unitPosition === "start" && renderUnit()}
                 <input
-                    id={inputId}
+                    id={id}
                     type='text'
                     value={value}
                     aria-required='true'
                     aria-invalid={showInvalid}
-                    aria-errormessage={showInvalid ? `${inputId}-error` : null}
+                    aria-errormessage={showInvalid ? `${id}-error` : null}
                     onChange={handleChange}
                     ref={ref}
                 ></input>

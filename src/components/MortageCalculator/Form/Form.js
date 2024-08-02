@@ -99,7 +99,7 @@ function Form({ onSubmit }) {
                     <RadioButtons
                         onChange={handleInputChange}
                         formData={formData}
-                        showError={emptyElements.includes('mortgageTerm') && showErrors}
+                        showInvalid={emptyElements.includes('mortgageType') && showErrors}
                         ref1={repaymentRef}
                         ref2={interestOnlyRef}
                     />
