@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import RadioButton from './RadioButton/RadioButton';
 
-function RadioButtons({onChange, formData, showError}) {
+function RadioButtons({onChange, formData, showError, ref1, ref2}) {
     const radioId = useId();
     const { t } = useTranslation();
 
@@ -19,6 +19,7 @@ function RadioButtons({onChange, formData, showError}) {
                     value='repayment'
                     onChange={(event) => { onChange('mortgageType', event.target.value) }}
                     selected={formData.mortgageType === 'repayment'}
+                    ref={ref1}
                 />
                 <RadioButton
                     label={t('interestOnly')}
@@ -26,6 +27,7 @@ function RadioButtons({onChange, formData, showError}) {
                     value='interest only'
                     onChange={(event) => { onChange('mortgageType', event.target.value) }}
                     selected={formData.mortgageType === 'interest only'}
+                    ref={ref2}
                 />
             {showError && renderFieldRequired()}
         </div>

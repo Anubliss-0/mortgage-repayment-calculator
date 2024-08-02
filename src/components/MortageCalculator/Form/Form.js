@@ -2,6 +2,8 @@ import { useState, useRef } from 'react';
 import { useTranslation } from '../../../i18n';
 import PropTypes from 'prop-types';
 
+import { setFocusOnFirstEmpty } from './FormUtils';
+
 import RadioButtons from './RadioButtons/RadioButtons';
 import NumberField from './NumberField/NumberField';
 import SubmitButton from './SubmitButton/SubmitButton';
@@ -12,9 +14,10 @@ function Form({ onSubmit }) {
     const { t } = useTranslation();
     const mortgageAmountRef = useRef(null);
     const mortgageTermRef = useRef(null);
-    const mortgageTypeRef = useRef(null);
-    const fieldRefs = [mortgageAmountRef, mortgageTermRef, mortgageTypeRef]
-    
+    const repaymentRef = useRef(null);
+    const interestOnlyRef = useRef(null)
+    const fieldRefs = [mortgageAmountRef, mortgageTermRef, repaymentRef, interestOnlyRef]
+
     const [showErrors, setShowErrors] = useState(false);
 
     const [emptyElements, setEmptyElements] = useState([
@@ -23,20 +26,13 @@ function Form({ onSubmit }) {
         'interestRate',
         'mortgageType'
     ]);
-    
+
     const [formData, setFormData] = useState({
         mortgageAmount: '',
         mortgageTerm: '',
         interestRate: '',
         mortgageType: ''
     });
-
-    const setFocusOnFirstEmpty = () => {
-        const emptyRef = fieldRefs.find(ref => ref.current && ref.current.value === '');
-        if (emptyRef && emptyRef.current) {
-          emptyRef.current.focus();
-        }
-      };
 
     const handleInputChange = (key, value) => {
         const newFormData = {
@@ -60,7 +56,7 @@ function Form({ onSubmit }) {
             onSubmit(formData);
         } else {
             setShowErrors(true);
-            setFocusOnFirstEmpty()
+            setFocusOnFirstEmpty(fieldRefs)
         }
     };
 
@@ -104,7 +100,8 @@ function Form({ onSubmit }) {
                         onChange={handleInputChange}
                         formData={formData}
                         showError={emptyElements.includes('mortgageTerm') && showErrors}
-                        ref={mortgageTypeRef}
+                        ref1={repaymentRef}
+                        ref2={interestOnlyRef}
                     />
                 </fieldset>
                 <SubmitButton />

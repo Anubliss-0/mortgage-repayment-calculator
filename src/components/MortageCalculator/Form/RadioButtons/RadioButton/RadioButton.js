@@ -1,11 +1,11 @@
-import { useState, useId } from 'react';
+import { useState, useId, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { Icon } from '@iconify/react';
 
 import styles from './RadioButton.module.scss'
 
-function RadioButton({ collectionName, label, value, selected, onChange }) {
+const RadioButton = forwardRef(function RadioButton({collectionName, label, value, selected, onChange}, ref) {
     const [mouseHover, setMouseHover] = useState(false);
     const id = useId();
 
@@ -21,13 +21,13 @@ function RadioButton({ collectionName, label, value, selected, onChange }) {
                 onChange={onChange}
                 checked={selected}
                 className={styles.radioInput}
+                ref={ref}
             />
             <label
                 htmlFor={id}
                 className={`${styles.radioButton} ${mouseHover ? styles.hover : ''} ${selected ? styles.selected : ''}`}
                 onMouseEnter={() => setMouseHover(true)}
                 onMouseLeave={() => setMouseHover(false)}
-                aria-live="polite" // Informing about dynamic changes
             >
                 {label}
                 <div className={styles.checkbox} role="checkbox" aria-checked={selected} aria-live="polite">
@@ -36,7 +36,7 @@ function RadioButton({ collectionName, label, value, selected, onChange }) {
             </label>
         </div>
     )
-}
+})
 
 RadioButton.propTypes = {
     collectionName: PropTypes.string.isRequired,
