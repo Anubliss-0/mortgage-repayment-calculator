@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { i18n } from '../../i18n.js';
 
 import { calculateTotalRepayment } from './mortgageCalculatorUtils.js';
 
+import LangugeSelect from '../LanguageSelect/LanguageSelect.js';
 import Form from './Form/Form.js';
 import Results from './Results/Results.js';
 
@@ -11,9 +11,7 @@ function MortgageCalculator() {
   const [total, setTotal] = useState();
   const [showResults, setShowResults] = useState(false);
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
+  
 
   const calculateResults = (formData) => {
     const newTotal = calculateTotalRepayment(formData.mortgageAmount, formData.mortgageTerm, formData.interestRate, formData.mortgageType);
@@ -25,11 +23,7 @@ function MortgageCalculator() {
 
   return (
     <main>
-      <button onClick={() => changeLanguage('en')}>English</button>
-      <button onClick={() => changeLanguage('nl')}>Nederlands</button>
-      <button onClick={() => changeLanguage('es')}>Español</button>
-      <button onClick={() => changeLanguage('de')}>Deutsch</button>
-      <button onClick={() => changeLanguage('fr')}>Fracais</button>
+      <LangugeSelect />
       <Form
         onSubmit={calculateResults}
         onFormClear={setShowResults}
