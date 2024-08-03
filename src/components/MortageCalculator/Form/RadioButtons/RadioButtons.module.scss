@@ -1,0 +1,14 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/typography.scss';
+
+.radioGroup {
+    >span:first-of-type {
+        @include text-preset-4;
+        color: $slate-700;
+    }
+}
+
+.errorMessage {
+    @include text-preset-5;
+    color: $red;
+}

@@ -78,7 +78,7 @@ function Form({ onSubmit, onFormClear }) {
             >
                 <fieldset>
                     <legend className={styles.legend}>
-                        Mortgage Calculator
+                        {t("mortgageCalculator")}
                         <button
                             type='button'
                             onClick={resetForm}

@@ -26,7 +26,14 @@ const NumberField = forwardRef(function NumberField({ unit, label, value, onChan
 
 
     const renderFieldRequired = () => (
-        <span id={`${id}-error`} aria-live="assertive" role="alert">{t('fieldRequired')}</span>
+        <span 
+            id={`${id}-error`} 
+            aria-live="assertive" 
+            role="alert"
+            className={styles.errorMessage}
+        >
+            {t('fieldRequired')}
+        </span>
     )
 
     return (

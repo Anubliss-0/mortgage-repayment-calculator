@@ -7,6 +7,7 @@ i18n
     resources: {
       en: {
         translation: {
+          "mortgageCalculator": "Mortgage Calculator",
           "language": "Language",
           "clearAll": "Clear All",
           "mortgageAmount": "Mortgage Amount",
@@ -27,6 +28,7 @@ i18n
       },
       nl: {
         translation: {
+          "mortgageCalculator": "Hypotheekcalculator",
           "language": "Taal",
           "clearAll": "Alles wissen",
           "mortgageAmount": "Hypotheekbedrag",
@@ -48,6 +50,7 @@ i18n
       },
       fr: {
         translation: {
+          "mortgageCalculator": "Calculateur de prêt hypothécaire",
           "language": "Langue",
           "clearAll": "Tout effacer",
           "mortgageAmount": "Montant du prêt hypothécaire",
@@ -69,6 +72,7 @@ i18n
       },
       es: {
         translation: {
+          "mortgageCalculator": "Calculadora de hipotecas",
           "language": "Idioma",
           "clearAll": "Borrar todo",
           "mortgageAmount": "Monto de la hipoteca",
@@ -90,6 +94,7 @@ i18n
       },
       de: {
         translation: {
+          "mortgageCalculator": "Hypothekenrechner",
           "language": "Sprache",
           "clearAll": "Alles löschen",
           "mortgageAmount": "Hypothekenbetrag",

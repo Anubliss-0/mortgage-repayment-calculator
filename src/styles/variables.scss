@@ -1,4 +1,6 @@
 /* Colours */
+$white: #FFFFFF;
+
 $lime: #D8DB2F;
 
 $slate-900: #133041;
@@ -7,9 +9,9 @@ $slate-500: #6B94A8;
 $slate-300: #9ABED5;
 $slate-100: #E4F4FD;
 
-$white: #FFFFFF;
-
 $red: #D73328;
+
+$lime-white: mix($white, $lime, 50%);
 
 $font-primary: "Plus Jakarta Sans", sans-serif;
 

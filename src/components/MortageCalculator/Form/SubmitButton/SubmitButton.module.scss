@@ -1,0 +1,25 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/utilities.scss';
+@import '../../../../styles/typography.scss';
+
+.button {
+    background-color: $lime;
+    border: none;
+    max-width: 19.625rem;
+    height: 3.5rem;
+    @include text-preset-3;
+    @include flex-row-center;
+    padding: 0 $spacing-500;
+    border-radius: 2rem;
+    transition: 400ms;
+
+    &:hover {
+        background-color: $lime-white;
+    }
+}
+
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: $spacing-150;
+}

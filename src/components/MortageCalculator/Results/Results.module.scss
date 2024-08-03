@@ -2,10 +2,84 @@
 @import '../../../styles/typography.scss';
 @import '../../../styles/utilities.scss';
 
-.results {
+.resultsContainer {
     @include flex-column-center;
     background-color: $slate-900;
     width: 100%;
     height: 100%;
     border-radius: 0 1.5rem 1.5rem 5rem;
+    max-width: 31.5rem;
+    padding: $spacing-400;
+}
+
+.resultsPlaceholder {
+    @include flex-column-center;
+    text-align: center;
+
+    h2 {
+        @include text-preset-2;
+        color: $white;
+        margin: $spacing-200 0;
+    }
+
+    p {
+        @include text-preset-4;
+        color: $slate-300;
+    }
+}
+
+.results {
+    h2 {
+        @include text-preset-2;
+        color: $white;
+        margin-bottom: $spacing-200;
+    }
+
+    p {
+        @include text-preset-4;
+        color: $slate-300;
+    }
+}
+
+.resultsBox {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-top: .25rem solid $lime;
+    border-radius: .5rem;
+    margin: $spacing-500 0;
+    padding: $spacing-400;
+
+    hr {
+        color: rgba(154, 190, 213, 0.25);
+        margin: $spacing-400 0;
+    }
+
+    div:nth-of-type(1) {
+        @include flex-column-start;
+
+        span:nth-of-type(1) {
+            @include text-preset-4;
+            color: $slate-300;
+        }
+
+        span:nth-of-type(2) {
+            @include text-preset-1;
+            color: $lime;
+        }
+    }
+
+    div:nth-of-type(2) {
+        @include flex-column-start;
+
+        span:nth-of-type(1) {
+            @include text-preset-4;
+            color: $slate-300;
+            margin-bottom: $spacing-100;
+        }
+
+        span:nth-of-type(2) {
+            @include text-preset-2;
+            color: $white;
+        }
+    }
+
 }

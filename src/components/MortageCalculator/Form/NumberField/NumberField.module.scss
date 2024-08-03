@@ -12,6 +12,11 @@
     }
 }
 
+.errorMessage {
+    @include text-preset-5;
+    color: $red;
+}
+
 .fieldInput {
     @include flex-row;
     @include text-preset-3;
@@ -21,7 +26,7 @@
     margin-top: $spacing-150;
     box-sizing: border-box;
     overflow: hidden;
-    transition: border-color 400ms;
+    transition: 400ms;
 
     .unit {
         @include flex-row-center;
@@ -30,7 +35,7 @@
             color: $slate-700;
             padding: $spacing-150;
             background-color: $slate-100;
-            transition: background-color 400ms, color 400ms;
+            transition: 400ms;
             @include text-preset-4;
         }
     }
