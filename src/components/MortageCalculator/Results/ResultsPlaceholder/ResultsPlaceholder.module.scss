@@ -1,0 +1,19 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/typography.scss';
+@import '../../../../styles/utilities.scss';
+
+.resultsPlaceholder {
+    @include flex-column-center;
+    text-align: center;
+
+    h2 {
+        @include text-preset-2;
+        color: $white;
+        margin: $spacing-200 0;
+    }
+
+    p {
+        @include text-preset-4;
+        color: $slate-300;
+    }
+}
