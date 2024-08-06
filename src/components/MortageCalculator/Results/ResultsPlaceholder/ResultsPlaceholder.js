@@ -9,7 +9,12 @@ function ResultsPlaceholder() {
 
     return (
         <div className={styles.resultsPlaceholder}>
-            <Svg width={192} height={192} />
+            <Svg 
+                width={192} 
+                height={192}
+                aria-label='calculator, bills, and money'
+                role='img'
+            />
             <h2>{t("resultsHere")}</h2>
             <p>{t("resultsPlaceholder")}</p>
         </div>

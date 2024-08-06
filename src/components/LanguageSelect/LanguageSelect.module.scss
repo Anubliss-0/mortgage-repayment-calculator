@@ -1,8 +1,22 @@
 @import '../../styles/variables.scss';
 @import '../../styles/utilities.scss';
+@import '../../styles/typography.scss';
 
 .header {
     @include flex-row-start;
     width: 100%;
     max-width: 63rem;
+
+    label {
+        @include text-preset-4;
+        margin: $spacing-150;
+    }
+
+    select {
+        margin-left: $spacing-100;
+    }
+
+    @include respond-to-tablet {
+        max-width: 43rem;
+    }
 }

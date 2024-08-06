@@ -1,31 +1,24 @@
 @import 'variables';
 
-@mixin flex($direction: $flex-row, $justify: $flex-start, $align: stretch) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align;
-}
-
 @mixin flex-column {
     display: flex;
-    flex-direction: $flex-column;
-    justify-content: $flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: stretch;
 }
 
 @mixin flex-column-start {
     display: flex;
-    flex-direction: $flex-column;
-    justify-content: $flex-start;
+    flex-direction: column;
+    justify-content: start;
     align-items: baseline;
 }
 
 @mixin flex-column-center {
     display: flex;
-    flex-direction: $flex-column;
-    justify-content: $flex-center;
-    align-items: $flex-center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @mixin flex-row {
@@ -37,30 +30,30 @@
 
 @mixin flex-row-justify-between {
     display: flex;
-    flex-direction: $flex-row;
-    justify-content: $flex-space-between;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: stretch;
 }
 
 @mixin flex-row-start {
     display: flex;
-    flex-direction: $flex-row;
-    justify-content: $flex-start;
+    flex-direction: row;
+    justify-content: start;
     align-items: stretch;
 }
 
 @mixin flex-row-center {
     display: flex;
-    flex-direction: $flex-row;
-    justify-content: $flex-center;
-    align-items: $flex-center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 @mixin flex-row-start-center {
     display: flex;
-    flex-direction: $flex-row;
-    justify-content: $flex-start;
-    align-items: $flex-center;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
 }
 
 @mixin respond-to-tablet {

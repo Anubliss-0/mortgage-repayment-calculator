@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import CalculatedResults from './Results/CalculatedResults';
+import CalculatedResults from './CalculatedResults/CalculatedResults';
 import ResultsPlaceholder from './ResultsPlaceholder/ResultsPlaceholder';
 
 import styles from './Results.module.scss'
