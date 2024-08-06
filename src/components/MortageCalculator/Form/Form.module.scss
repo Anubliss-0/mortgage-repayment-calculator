@@ -4,11 +4,15 @@
 
 .form {
     @include flex-column;
-    max-width: 31.5rem;
     margin: $spacing-500;
+    flex: 1;
 
     >fieldset {
         border-style: none;
+    }
+
+    @include respond-to-phone {
+        margin: $spacing-400 $spacing-300;
     }
 }
 
@@ -25,11 +29,28 @@
         padding: 0rem;
         text-decoration: underline;
         color: $slate-700;
+        transition: 400ms;
+
+        &:hover {
+            color: $slate-900;
+        }
+
+        @include respond-to-phone {
+            margin-top: 8px;
+        }
+    }
+
+    @include respond-to-phone {
+        @include flex-column-start;
     }
 }
 
 .inputsContainer {
     margin: $spacing-500 0;
+
+    @include respond-to-phone {
+        margin: $spacing-300 0;
+    }
 }
 
 .smallInputs {
@@ -37,4 +58,5 @@
     grid-template-columns: 1fr 1fr;
     gap: $spacing-300;
     margin: $spacing-300 0;
+    align-items: end;
 }

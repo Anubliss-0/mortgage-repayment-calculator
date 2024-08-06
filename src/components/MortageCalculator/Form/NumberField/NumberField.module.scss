@@ -4,7 +4,6 @@
 
 .numberField {
     @include flex-column-start;
-    max-width: 26.5rem;
 
     label {
         @include text-preset-4;
@@ -27,6 +26,7 @@
     box-sizing: border-box;
     overflow: hidden;
     transition: 400ms;
+    width: 100%;
 
     .unit {
         @include flex-row-center;

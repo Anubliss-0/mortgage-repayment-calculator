@@ -9,5 +9,10 @@
 
     @include respond-to-tablet {
         @include flex-column-center;
+        max-width: 43rem;
+    }
+
+    @include respond-to-phone {
+        border-radius: 0;
     }
 }

@@ -1,6 +1,5 @@
 @import 'variables';
 
-// Base flex mixin with customizable properties
 @mixin flex($direction: $flex-row, $justify: $flex-start, $align: stretch) {
     display: flex;
     flex-direction: $direction;
@@ -8,7 +7,6 @@
     align-items: $align;
 }
 
-// Flex column mixins
 @mixin flex-column {
     display: flex;
     flex-direction: $flex-column;
@@ -20,7 +18,7 @@
     display: flex;
     flex-direction: $flex-column;
     justify-content: $flex-start;
-    align-items: stretch;
+    align-items: baseline;
 }
 
 @mixin flex-column-center {
@@ -30,11 +28,10 @@
     align-items: $flex-center;
 }
 
-// Flex row mixins
 @mixin flex-row {
     display: flex;
-    flex-direction: $flex-row;
-    justify-content: $flex-start;
+    flex-direction: row;
+    justify-content: start;
     align-items: stretch;
 }
 
@@ -66,9 +63,14 @@
     align-items: $flex-center;
 }
 
-// Media query mixin for tablets
 @mixin respond-to-tablet {
     @media (max-width: $max-width-tablet) {
+        @content;
+    }
+}
+
+@mixin respond-to-phone {
+    @media (max-width: $max-width-phone) {
         @content;
     }
 }

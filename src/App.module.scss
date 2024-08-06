@@ -5,4 +5,12 @@
     @include flex-column-center;
     height: 100vh;
     padding: $spacing-500;
+
+    @include respond-to-tablet {
+        height: auto;
+    }
+
+    @include respond-to-phone {
+        padding: 0;
+    }
 }

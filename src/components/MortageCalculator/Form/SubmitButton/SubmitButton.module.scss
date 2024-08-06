@@ -16,6 +16,10 @@
     &:hover {
         background-color: $lime-white;
     }
+
+    @include respond-to-phone {
+        max-width: none;
+    }
 }
 
 .icon {

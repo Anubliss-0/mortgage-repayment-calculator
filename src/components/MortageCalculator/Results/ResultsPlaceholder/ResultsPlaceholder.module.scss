@@ -5,6 +5,7 @@
 .resultsPlaceholder {
     @include flex-column-center;
     text-align: center;
+    height: 100%;
 
     h2 {
         @include text-preset-2;
