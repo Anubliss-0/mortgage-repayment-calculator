@@ -8,6 +8,11 @@ export default [
   pluginJs.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
+    settings: {
+      react: {
+        version: "10.8.2",
+      },
+    },
     rules: {
       "react/react-in-jsx-scope": "off",
       "react/jsx-uses-react": "off",

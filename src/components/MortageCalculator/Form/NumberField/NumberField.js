@@ -61,11 +61,10 @@ const NumberField = forwardRef(function NumberField({ unit, label, value, onChan
 NumberField.propTypes = {
     unit: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    value: PropTypes.number,
+    value: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     showInvalid: PropTypes.bool.isRequired,
     unitPosition: PropTypes.string.isRequired,
-    ref: PropTypes.string.isRequired
 }
 
 export default NumberField;

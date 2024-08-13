@@ -15,12 +15,25 @@
     }
 }
 
+.monthly {
+    @include text-preset-1;
+    color: $lime;
+
+    @include respond-to-phone {
+        @include mobile-text-preset-1;
+    }
+}
+
 .resultsBox {
     background-color: rgba(0, 0, 0, 0.25);
     border-top: .25rem solid $lime;
     border-radius: .5rem;
     margin: $spacing-500 0 0;
     padding: $spacing-400;
+
+    .bigNum {
+        font-size: 2rem;
+    }
 
     hr {
         color: rgba(154, 190, 213, 0.25);
@@ -33,11 +46,6 @@
         span:nth-of-type(1) {
             @include text-preset-4;
             color: $slate-300;
-        }
-
-        span:nth-of-type(2) {
-            @include text-preset-1;
-            color: $lime;
         }
     }
 

@@ -6,6 +6,8 @@
     max-width: 63rem;
     border-radius: 1.5rem;
     background-color: $white;
+    transition: all 400ms;
+    height: auto;
 
     @include respond-to-tablet {
         @include flex-column-center;
