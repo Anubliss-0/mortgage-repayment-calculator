@@ -29,86 +29,100 @@ Users should be able to:
 - Complete the form only using their keyboard
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
+- (bonus!) Select a language of thier choosing
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](https://raw.githubusercontent.com/Anubliss-0/mortgage-repayment-calculator/main/Screenshot%202024-08-13%20at%2017-52-32%20Mortgage%20Calculator.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/Anubliss-0/mortgage-repayment-calculator)
+- Live Site URL: [Add live site URL here](https://anubliss-0.github.io/mortgage-repayment-calculator/)
 
 ## My process
 
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
+- SCSS
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [Create React App](https://create-react-app.dev/)
+- [i18next](https://react.i18next.com/)
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+This is my first project using React!
+I am coming from a Ruby on Rails background that does not use turboframes or viewstates of any sort, so this has been a really interesting and valuable project/learning experience.
 
-To see how you can add code snippets, see below:
+Apart from learning the basics of React such as props, states and references I also tried my best to apply my current understanding that comes with working with a Ruby on Rails app with a large userbase.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
+As such I have compiled a list of the topics and design paradigms I have encountered and attempted to apply within this project...
+- attempted to adhere to a11y standards as closly as possible.
+- Using esLint to enforce good code practice.
+- Using CRA (Create React App).
+- Using Proptypes to ensure datatypes.
+- Using i18Nexr-React to add language selection.
+- Using a feature absed structure to organise components.
+- Organising componenets using separation of concerns.
+    - Placing JSX and view state logic into .js file
+    - Using modular styles to avoid class clashes
+    - Moving complex logic not related to states into a util file.
+- Grouping imports (mostly just i18n related).
+
+I am quite proud of all the code! But if there is one example I would like to share it would be the way I DRY'ed up the numberField component.
+I tried to imagine this component as if it could be used elsewhere so I tried to make it as modular as I could.
+Rather than create two seperate inputs as suggested in the figma design document I created one and added options to add re-usability.
+
+```JSX
+    const renderFieldRequired = () => (
+        <span 
+            id={`${id}-error`} 
+            aria-live="assertive" 
+            role="alert"
+            className={styles.errorMessage}
+        >
+            {t('fieldRequired')}
+        </span>
+    )
+
+    return (
+        <div className={styles.numberField}>
+            <label htmlFor={id}>{label}</label>
+            <div className={`${styles.fieldInput} ${showInvalid && value.length < 1 ? styles.invalid : ''}`}>
+                {unitPosition === "start" && renderUnit()}
+                <input
+                    id={id}
+                    type='text'
+                    value={value}
+                    aria-required='true'
+                    aria-invalid={showInvalid}
+                    aria-errormessage={showInvalid ? `${id}-error` : null}
+                    onChange={handleChange}
+                    ref={ref}
+                ></input>
+                {unitPosition === 'end' && renderUnit()}
+            </div>
+            {showInvalid && renderFieldRequired()}
+        </div>
+    );
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+Moving forwards I want to continue exploring what react has to offer. While I feel I learnt a lot with this project I chose to limit myself to a degree as not to overcomplicate my first react project.
+Additionally, I would like to explore if a feature based structure is the best option for organising my components. While I do find it makes semantic sence, I sometimes found it a bit messy having to dive multiple directories deep to find certain components I wanted to style.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I also attempted to seperate concerns and utilise the power of SCSS as much as possible. My concern however is that I may have obscured my code a little bit. Also I tried to apply combinators to my styles where perhaps I should have utilised Reacts modular styles a bit more.
+
+Moving forwards I will continue to work on single page React projects, but eventually I would like to utilise React routing and possibly lean on my experience with Rails based API's to create something with more depth.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [StackOverflow](https://stackoverflow.com/) - Need I say anymore! If you are a budding developer this site is your friend!
+- [CreateReactApp](https://create-react-app.dev/) - Takes the guesswork out of creating and deploying React applications.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/Anubliss-0)
+- Linkedin - [thomas-rice-webdev](https://www.linkedin.com/in/thomas-rice-webdev/)
