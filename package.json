@@ -17,6 +17,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,6 +42,8 @@
     "@iconify/react": "^5.0.2",
     "eslint": "^9.8.0",
     "eslint-plugin-react": "^7.35.0",
+    "gh-pages": "^6.1.1",
     "globals": "^15.8.0"
-  }
+  },
+  "homepage": "https://anubliss-0.github.io/mortgage-repayment-calculator"
 }
